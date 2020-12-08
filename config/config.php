@@ -2,8 +2,6 @@
 
 /** Configuration Variables **/
 
-define ('DEVELOPMENT_ENVIRONMENT',true);
-
 define('DB_NAME', 'shop');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
