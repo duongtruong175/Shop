@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "library/function.php";
 
 //
 if(isset($_GET['controller'])){
@@ -18,5 +19,3 @@ if (file_exists($file)) {
 } else {
     NotFound();
 }
-
-

@@ -2,9 +2,9 @@
 
 /** Configuration Variables **/
 
-define('BASEURL' , 'http://localhost/Shop');
+define('BASEURL' , 'http://localhost:8080/web/Shop');
 define('BASEPATH', dirname(__FILE__) . '/');
-define('PATH_URL', 'http://localhost/Shop');
+define('PATH_URL', 'http://localhost:8080/web/Shop');
 define('PATH_URL_IMG', PATH_URL.'/public/upload/images/');
 define('PATH_URL_IMG_PRODUCT', PATH_URL. '/public/upload/products/');
 
