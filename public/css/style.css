@@ -100,8 +100,14 @@ body {
 
 /* Noi dung ở giữa trang web */
 .content {
-  margin-top: 140px; /* đủ để cách header */
+  margin-top: 120px; /* đủ để cách header */
+  overflow: auto; /* tạo thanh cuộn khi nội dung tràn -> tránh Margin Collapse*/
+}
+
+/* Cac kieu phan trang o phan noi dung */
+.container-flex {
   display: flex;
+  margin: 20px 4px;
 }
 
 /* trang home */
@@ -215,6 +221,7 @@ body {
 #btn-add-to-cart button {
   background-color: #fb5533;
   border-radius: 4px;
+  color: #fff;
   padding: 10px;
   border: none;
   outline: none;
@@ -234,3 +241,162 @@ body {
   text-align: center;
 }
 /* end Footer */
+
+/* kẻ chia cẳt */
+.line {
+  width: 2px;
+  height: 60px;
+  margin: 0 30px 0 40px;
+  background-color: white;
+}
+
+/* Các phần form */
+.container-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+.signup {
+  padding: 60px 20px;
+  background-color: #fff;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+}
+.signup-heading {
+  font-size: 40px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin-bottom: 35px;
+}
+.signup-label {
+  font-size: 14px;
+  color: #1c1d1f;
+  font-weight: 500; /* độ đậm  của phông chữ */
+  margin-bottom: 10px;
+  display: inline-block; /* khác với inline là cho phép đặt cao/rộng */
+  cursor: pointer;
+}
+.signup-input {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f2f3f5;
+  outline: none; /* tắt viền */
+  border: 0;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.signup-submit {
+  padding: 25px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  border: 0;
+  outline: none;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #ee4d2d;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-block; /* thêm để tránh Margin Collapse */
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.signup-already {
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+}
+.signup-login-link {
+  color: #2979ff;
+  text-decoration: none;
+}
+.select-info {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  border-radius: 10px;
+  background-color: #f2f3f5;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+/* Xem chi tiết sản phẩm */
+.container-product {
+  display: flex;
+  margin: 20px 150px;
+  background-color: #fff;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+.left {
+  display: flex;
+  align-items: center;
+  flex: 0 0 24rem;
+  margin: 0 1.5rem 1.5rem 0;
+}
+.right {
+  flex: 1; /* chiếm hết màn hình còn lại trên dòng flex */
+  width: 0;
+  min-width: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product-detail {
+  width: 100%;
+  padding: 20px 16px 20px 16px;
+}
+.product-detail h3 {
+  font-weight: bold;
+  font-size: 120%;
+  padding-bottom: 4px;
+}
+
+/* giỏ hàng */
+.container-cart {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 4px;
+}
+.cart-detail {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
+}
+.cart-detail th,td {
+  text-align: center;
+  padding: 16px 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.btn-delete {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.checkout {
+  margin: 40px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+}
+.checkout label, span {
+  font-size: 110%;
+  padding-right: 10px;
+}
+#btn-checkout {
+  background-color: #fb5533;
+  border-radius: 4px;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 40px; 
+}
