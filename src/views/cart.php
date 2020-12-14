@@ -73,14 +73,14 @@
                             </div>
                         </td>
                         <td>samsung_galaxy_note_10_plus_256gb</td>
-                        <td>600.000</td>
+                        <td>600$</td>
                         <td><input style="width: 44px;" type="number" name="quantity" value="1" min="1"></td>
                         <td><button class="btn-delete"><img src="../../public/img/delete.png"></button></td>
                     </tr>
                 </tbody>
             </table>
             <div class="checkout">
-                <label>Tổng tiền hàng: </label><span>1.200.000</span>
+                <label>Tổng tiền hàng: </label><span>1200$</span>
                 <button id="btn-checkout">Thanh toán</button>
             </div>
         </div>

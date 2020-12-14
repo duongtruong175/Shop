@@ -159,8 +159,8 @@ body {
   flex: 0 1 auto;
 }
 .product {
-  flex-basis: 20%; /* chỉ định độ dài ban đầu của phần tử trong flex */
-  max-width: 20%; /* độ dài tối đa của phần tử so với phần tử chứa nó*/
+  flex-basis: 30%; /* chỉ định độ dài ban đầu của phần tử trong flex */
+  max-width: 30%; /* độ dài tối đa của phần tử so với phần tử chứa nó*/
   flex: 0 0 auto; /* đặt tất cả phần tử trong flex có cùng độ dài */
   padding-right: 0.3125rem;
   padding-left: 0.3125rem;

@@ -53,7 +53,7 @@
                     <h3>Tên sản phẩm:</h3><span>samsung_galaxy_note_10_plus_256gb</span>
                 </div>
                 <div class="product-detail">
-                    <h3>Giá sản phẩm:</h3><span>600.000</span>
+                    <h3>Giá sản phẩm:</h3><span>600$</span>
                 </div>
                 <div class="product-detail">
                     <h3>Chi tiết sản phẩm:</h3>

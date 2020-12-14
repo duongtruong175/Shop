@@ -62,8 +62,10 @@
                     <select class="select-info" id="ward" name="ward">
                         <option value="0">Vui lòng chọn phường/xã</option>
                     </select>
-                    <label for="method" class="signup-label">Payment Method</label>
-                    <select class="select-info" id="method" name="method">
+                    <label for="street" class="signup-label">Street</label>
+                    <input type="text" id="street" class="signup-input" required placeholder="enter your street">
+                    <label for="payment" class="signup-label">Payment Method</label>
+                    <select class="select-info" id="payment" name="payment">
                         <option value="0">--Chọn--</option>
                         <option value="Thanh toan khi nhan hang">Thanh toán khi nhận hàng</option>
                     </select>
