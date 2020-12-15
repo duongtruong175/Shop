@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 14, 2020 lúc 04:16 PM
+-- Thời gian đã tạo: Th12 15, 2020 lúc 02:39 PM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
--- Phiên bản PHP: 7.4.10
+-- Phiên bản PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -103,6 +103,19 @@ CREATE TABLE `catagories` (
   `name` varchar(50) NOT NULL,
   `isDelete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `catagories`
+--
+
+INSERT INTO `catagories` (`id`, `name`, `isDelete`) VALUES
+(1, 'IPHONE', 0),
+(2, 'SAMSUNG', 0),
+(3, 'OPPO', 0),
+(4, 'VIVO', 0),
+(5, 'NOKIA', 0),
+(6, 'VSMART', 0),
+(7, 'XIAOMI', 0);
 
 -- --------------------------------------------------------
 
@@ -847,6 +860,59 @@ CREATE TABLE `products` (
   `detail` varchar(500) NOT NULL,
   `isDelete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `catagory_id`, `image`, `price`, `detail`, `isDelete`) VALUES
+(1, 'Samsung Glaxy Note 10 Plus 256GB', 2, '/public/upload/products/samsung_galaxy_note_10_plus_256gb.png', 712, 'Màn hình: 6.8\", Quad HD+ (2K+)\r\nChip: Exynos 9825 8 nhân\r\nRAM: 12 GB, Bộ nhớ trong: 256 GB\r\nCamera sau: Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D\r\nCamera trước: 10 MP\r\nPin: 4300 mAh, có sạc nhanh', 0),
+(2, 'IPhone 12 mini 64GB', 1, '/public/upload/products/iphone-mini-64gb.png', 841, 'Màn hình: 5.4\", Super Retina XDR\r\nChip: Apple A14 Bionic 6 nhân\r\nRAM: 4 GB, Bộ nhớ trong: 64 GB\r\nCamera sau: 2 camera 12 MP\r\nCamera trước: 12 MP\r\nCamera trước: 12 MP', 0),
+(3, 'IPhone 11 Pro Max 512GB', 1, '/public/upload/products/iphone-11-pro-max-512gb.png', 1553, 'Màn hình: 6.5\", Super Retina XDR\r\nChip: Apple A13 Bionic 6 nhân\r\nRAM: 4 GB, Bộ nhớ trong: 512 GB\r\nCamera sau: 3 camera 12 MP\r\nCamera trước: 12 MP\r\nPin: 3969 mAh, có sạc nhanh', 0),
+(4, 'IPhone 12 Pro 512GB', 1, '/public/upload/products/iphone-12-pro-512gb.png', 1769, 'Màn hình: 6.1\", Super Retina XDR\r\nChip: Apple A14 Bionic 6 nhân\r\nRAM: 6 GB, Bộ nhớ trong: 512 GB\r\nCamera sau: 3 camera 12 MP\r\nCamera trước: 12 MP\r\nPin: 2815 mAh, có sạc nhanh', 0),
+(5, 'IPhone Xs 64GB', 1, '/public/upload/products/iphone-xs.png', 755, 'Màn hình: 5.8\", Super Retina\r\nChip: Apple A12 Bionic 6 nhân\r\nRAM: 4 GB, Bộ nhớ trong: 64 GB\r\nCamera sau: 2 camera 12 MP\r\nCamera trước: 7 MP\r\nPin: 2658 mAh, có sạc nhanh\r\n', 0),
+(6, 'iPhone SE 256GB', 1, '/public/upload/products/iphone-se-128gb.png', 668, 'Màn hình: 4.7\"\r\nChip: Apple A13 Bionic 6 nhân\r\nRAM: 3 GB, Bộ nhớ trong: 256 GB\r\nCamera sau: 12 MP\r\nCamera trước: 7 MP\r\nPin: 1821 mAh, có sạc nhanh\r\n\r\n', 0),
+(7, 'IPhone Xr 64GB', 1, '/public/upload/products/iphone-xr-64gb.png', 625, 'Màn hình: 6.1\", Liquid Retina\r\nChip: Apple A12 Bionic 6 nhân\r\nRAM: 3 GB, Bộ nhớ trong: 64 GB\r\nCamera sau: 12 MP\r\nCamera trước: 7 MP\r\nPin: 2942 mAh, có sạc nhanh', 0),
+(8, 'IPhone 7 128GB', 1, '/public/upload/products/iphone-7-128gb.png', 388, 'Màn hình: 4.7\", Retina HD\r\nChip: Apple A10 Fusion 4 nhân\r\nRAM: 2 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: 12 MP\r\nCamera trước: 7 MP\r\nPin: 1960 mAh', 0),
+(9, 'Samsung Galaxy Note 20', 2, '/public/upload/products/samsung-galaxy-note-20.png', 1165, 'Màn hình: 6.9\", Quad HD+ (2K+)\r\nChip: Exynos 990 8 nhân\r\nRAM: 12 GB, Bộ nhớ trong: 256 GB\r\nCamera sau: Chính 108 MP & Phụ 12 MP, 12 MP, cảm biến Laser AF\r\nCamera trước: 10 MP\r\nPin: 4500 mAh, có sạc nhanh', 0),
+(10, 'Samsung Galaxy S20 FE', 2, '/public/upload/products/samsung-galaxy-s20.png', 690, 'Màn hình: 6.5\", Full HD+\r\nChip: Exynos 990 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 12 MP & Phụ 12 MP, 8 MP\r\nCamera trước: 32 MP\r\nPin: 4500 mAh, có sạc nhanh', 0),
+(11, 'Samsung Galaxy M51', 2, '/public/upload/products/samsung-galaxy-m51.png', 409, 'Màn hình: 6.7\", Full HD+\r\nChip: Snapdragon 730 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP\r\nCamera trước: 32 MP\r\nPin: 7000 mAh, có sạc nhanh', 0),
+(12, 'Samsung Galaxy Z Fold2 5G', 2, '/public/upload/products/samsung-galaxy-z-fold-2.png', 2157, 'Màn hình: Chính 7.59\" & Phụ 6.23\", Full HD+\r\nChip: Snapdragon 865+ 8 nhân\r\nRAM: 12 GB, Bộ nhớ trong: 256 GB\r\nCamera sau: 3 camera 12 MP\r\nCamera trước: 10 MP\r\nPin: 4500 mAh, có sạc nhanh', 0),
+(13, 'Samsung Galaxy A21s', 2, '/public/upload/products/galaxy-a21s.png', 202, 'Màn hình: 6.5\", HD+\r\nChip: Exynos 850 8 nhân\r\nRAM: 3 GB, Bộ nhớ trong: 32 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP\r\nCamera trước: 13 MP\r\nPin: 5000 mAh, có sạc nhanh', 0),
+(14, 'Samsung Galaxy S10 Lite', 2, '/public/upload/products/samsung-galaxy-s10-lite.png', 647, 'Màn hình: 6.7\", Full HD+\r\nChip: Snapdragon 855 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 48 MP & Phụ 12 MP, 5 MP\r\nCamera trước: 32 MP\r\nPin: 4500 mAh, có sạc nhanh', 0),
+(15, 'OPPO A93', 3, '/public/upload/products/oppo-a93.png', 743, 'Màn hình: 6.8\", Quad HD+ (2K+)\r\nChip: Snapdragon 720G 8 nhân\r\nRAM: 12 GB, Bộ nhớ trong: 256 GB\r\nCamera sau: Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D\r\nCamera trước: 10 MP\r\nPin: 5000 mAh, có sạc nhanh', 0),
+(16, 'OPPO Reno4', 3, '/public/upload/products/oppo-reno4.png', 819, 'Màn hình: 6.8\", Quad HD+ (2K+)\r\nChip: Snapdragon 865 8 nhân\r\nRAM: 15 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D\r\nCamera trước: 10 MP\r\nPin: 5000 mAh , có sạc nhanh', 0),
+(17, 'OPPO A12', 3, '/public/upload/products/oppo-a12.png', 279, 'Màn hình: 8.9\", Quad HD+ \r\nChip: Snapdragon 720g 8 nhân\r\nRAM: 15 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D\r\nCamera trước: 10 MP\r\nPin: 5000 mAh , có sạc nhanh', 0),
+(18, 'OPPO Find X2', 3, '/public/upload/products/oppo-find-x2.png', 1959, 'Màn hình: 6.8\", Quad HD+ (2K+)\r\nChip: Snapdragon 865 8 nhân\r\nRAM: 12 GB, Bộ nhớ trong: 256 GB\r\nCamera sau: Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D\r\nCamera trước: 10 MP\r\nPin: 10000 mAh , có sạc nhanh', 0),
+(19, 'OPPO A92', 3, '/public/upload/products/oppo-a92.png', 599, 'Màn hình: 6.8\", Quad HD+ (2K+)\r\nChip: Snapdragon 665 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D\r\nCamera trước: 10 MP\r\nPin: 10000 mAh , có sạc nhanh', 0),
+(20, 'Vivo X50 Pro', 4, '/public/upload/products/vivo-x50-pro.png', 1739, 'Màn hình: 6.56\", Full HD+\r\nChip: Snapdragon 765G 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 256 GB\r\nCamera sau: Chính 48 MP & Phụ 13 MP, 8 MP, 8 MP\r\nCamera trước: 32 MP\r\nPin: 4315 mAh, có sạc nhanh', 0),
+(21, 'Vivo V20', 4, '/public/upload/products/vivo-v20.png', 789, 'Màn hình: 6.44\", Full HD+\r\nChip: Snapdragon 720G 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 48 MP & Phụ 13 MP, 8 MP, 8 MP\r\nCamera trước: 32 MP\r\nPin: 4315 mAh, có sạc nhanh', 0),
+(22, 'Vivo V19 Neo', 4, '/public/upload/products/vivo-v19-neo.png', 689, 'Màn hình: 6.44\", Full HD+\r\nChip: Snapdragon 675 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 8 MP, 8 MP\r\nCamera trước: 32 MP\r\nPin: 4500 mAh, có sạc nhanh', 0),
+(23, 'Vivo S1 Pro', 4, '/public/upload/products/vivo-s1-pro.png', 539, 'Màn hình: 6.38\", Full HD+\r\nChip: Snapdragon 665 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 8 MP, 8 MP\r\nCamera trước: 32 MP\r\nPin: 4500 mAh, có sạc nhanh', 0),
+(24, 'Vivo U10', 4, '/public/upload/products/vivo-u10.png', 339, 'Màn hình: 6.35\", Full HD+\r\nChip: Snapdragon 665 8 nhân\r\nRAM: 4 GB, Bộ nhớ trong: 64 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 8 MP, 8 MP\r\nCamera trước: 32 MP\r\nPin: 5000 mAh, có sạc nhanh', 0),
+(25, 'Vivo Y1s', 4, '/public/upload/products/vivo-y1s.png', 249, 'Màn hình: 6.22\", Full HD+\r\nChip: Snapdragon 665 8 nhân\r\nRAM: 2 GB, Bộ nhớ trong: 32 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 8 MP, 8 MP\r\nCamera trước: 32 MP\r\nPin: 5000 mAh', 0),
+(26, 'Nokia 3.4', 5, '/public/upload/products/nokia-3.4.png', 319, 'Màn hình: 6.39\", HD+\r\nChip: Snapdragon 460 8 nhân\r\nRAM: 4 GB, Bộ nhớ trong: 64 GB\r\nCamera sau: Chính 13 MP & Phụ 5 MP, 2 MP\r\nCamera trước: 8 MP\r\nPin: 4000 mAh', 0),
+(27, 'Nokia 215 4G', 5, '/public/upload/products/nokia-215.png', 75, 'Màn hình: 2.4\", QVGA\r\nThẻ nhớ: MicroSD, hỗ trợ tối đa 32 GB\r\nDanh bạ: 2000 số\r\nSIM: 2 Nano SIM\r\nPin: 1150 mAh', 0),
+(28, 'Nokia 8000 4G', 5, '/public/upload/products/nokia-8000.png', 179, 'Màn hình: 2.8\", QVGA\r\nCamera: 2 MP\r\nThẻ nhớ: MicroSD, hỗ trợ tối đa 32 GB\r\nDanh bạ: 2000 số\r\nSIM: 2 Nano SIM\r\nPin: 1500 mAh\r\n', 0),
+(29, 'Nokia 105 Dual', 5, '/public/upload/products/nokia-105.png', 37, 'Màn hình: 1.77\", QQVGA\r\nDanh bạ: 2000 số\r\nSIM: 2 SIM thường\r\nPin: 800 mAh', 0),
+(30, 'Nokia C2', 5, '/public/upload/products/nokia-c2.png', 149, 'Màn hình: 5.7\", HD+\r\nChip: Spreadtrum SC9832E 4 nhân\r\nRAM: 1 GB, Bộ nhớ trong: 16 GB\r\nCamera sau: 5 MP\r\nCamera trước: 5 MP\r\nPin: 2800 mAh', 0),
+(31, 'Nokia 8.3 5G', 5, '/public/upload/products/nokia-8.3.png', 1199, 'Màn hình: 5.7\", HD+\r\nChip: Spreadtrum 720G 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: 15 MP\r\nCamera trước: 12 MP\r\nPin: 4500 mAh', 0),
+(32, 'Nokia 6300 4G', 5, '/public/upload/products/nokia-8.3.png', 129, 'Màn hình: 2.4\", QVGA\r\nCamera: VGA (480 x 640 pixels)\r\nThẻ nhớ: MicroSD, hỗ trợ tối đa 32 GB\r\nDanh bạ: 1500 số\r\nSIM: 2 Nano SIM\r\nPin: 1500 mAh', 0),
+(33, 'Vsmart Joy4', 6, '/public/upload/products/vsmart-joy-4.png', 399, 'Màn hình: 6.53\", Full HD+\r\nChip: Snapdragon 665 8 nhân\r\nRAM: 6 GB, Bộ nhớ trong: 64 GB\r\nCamera sau: Chính 16 MP & Phụ 8 MP, 2 MP, 2 MP\r\nCamera trước: 13 MP\r\nPin: 5000 mAh, có sạc nhanh', 0),
+(34, 'Vsmart Aris', 6, '/public/upload/products/vsmart-aris.png', 749, 'Màn hình: 6.53\", Full HD+\r\nChip: Snapdragon 720G 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 16 MP & Phụ 8 MP, 2 MP, 2 MP\r\nCamera trước: 13 MP\r\nPin: 5000 mAh, có sạc nhanh', 0),
+(35, 'Vsmart Aris Pro', 6, '/public/upload/products/vsmart-aris-pro.png', 999, 'Màn hình: 6.72\", Full HD+\r\nChip: Snapdragon 720G 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 16 MP & Phụ 10 MP, 2 MP, 2 MP\r\nCamera trước: 13 MP\r\nPin: 4500 mAh, có sạc nhanh', 0),
+(36, 'Vsmart Live 4 6GB', 6, '/public/upload/products/vsmart-live-4.png', 459, 'Màn hình: 6.5\", Full HD+\r\nChip: Snapdragon 675 8 nhân\r\nRAM: 6 GB, Bộ nhớ trong: 64 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 5 MP, 2 MP\r\nCamera trước: 13 MP\r\nPin: 5000 mAh, có sạc nhanh', 0),
+(37, 'Vsmart Star 4 ', 6, '/public/upload/products/vsmart-star-4-3gb.png', 229, 'Màn hình: 6.09\", Full HD+\r\nChip: Snapdragon 675 8 nhân\r\nRAM: 3 GB, Bộ nhớ trong: 32 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 5 MP, 2 MP\r\nCamera trước: 13 MP\r\nPin: 5000 mAh, có sạc nhanh', 0),
+(38, 'Vsmart Active 3', 6, '/public/upload/products/vsmart-active-3.png', 379, 'Màn hình: 6.09\", Full HD+\r\nChip: Snapdragon 675 8 nhân\r\nRAM: 6 GB, Bộ nhớ trong: 64 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 5 MP, 2 MP\r\nCamera trước: 16 MP\r\nPin: 4200 mAh, có sạc nhanh', 0),
+(39, 'Vsmart Bee 3', 6, '/public/upload/products/vsmart-bee-3.png', 159, 'Màn hình: 6.0\", Full HD+\r\nChip: Snapdragon 675 8 nhân\r\nRAM: 2 GB, Bộ nhớ trong: 16 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 5 MP, 2 MP\r\nCamera trước: 16 MP\r\nPin: 3000 mAh', 0),
+(40, 'Xiaomi Redmi 9', 7, '/public/upload/products/xiaomi-redmi-9.png', 379, 'Màn hình: 6.53\", Full HD+\r\nChip: Snapdragon 675 8 nhân\r\nRAM: 4 GB, Bộ nhớ trong: 64 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 5 MP, 2 MP\r\nCamera trước: 16 MP\r\nPin: 5000 mAh , có sạc nhanh', 0),
+(41, 'Xiaomi Mi 10T Pro 5G', 7, '/public/upload/products/xiaomi-mi-10t.png', 1299, 'Màn hình: 6.53\", Full HD+\r\nChip: Snapdragon 720G 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 256 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 5 MP, 2 MP\r\nCamera trước: 16 MP\r\nPin: 5000 mAh , có sạc nhanh', 0),
+(42, 'Xiaomi POCO X3 NFC', 7, '/public/upload/products/xiaomi-poco-x3-nfc.png', 699, 'Màn hình: 6.67\", Full HD+\r\nChip: Snapdragon 720G 8 nhân\r\nRAM: 6 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 64 MP & Phụ 8 MP, 5 MP, 2 MP\r\nCamera trước: 16 MP\r\nPin: 5000 mAh , có sạc nhanh', 0),
+(43, 'Xiaomi Redmi Note 9S', 7, '/public/upload/products/xiaomi-redmi-note-9s.png', 599, 'Màn hình: 6.67\", Full HD+\r\nChip: Snapdragon 720G 8 nhân\r\nRAM: 6 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 5 MP, 2 MP\r\nCamera trước: 16 MP\r\nPin: 5020 mAh , có sạc nhanh', 0),
+(44, 'Xiaomi Redmi Note 8', 7, '/public/upload/products/xiaomi-redmi-note-8.png', 499, 'Màn hình: 6.67\", Full HD+\r\nChip: Snapdragon 665 8 nhân\r\nRAM: 4 GB, Bộ nhớ trong: 128 GB\r\nCamera sau: Chính 48 MP & Phụ 8 MP, 5 MP, 2 MP\r\nCamera trước: 13 MP\r\nPin: 5020 mAh , có sạc nhanh', 0),
+(45, 'Xiaomi Redmi 9A', 7, '/public/upload/products/xiaomi-redmi-9a.png', 199, 'Màn hình: 6.53\", Full HD+\r\nChip: Snapdragon 665 8 nhân\r\nRAM: 2 GB, Bộ nhớ trong: 32 GB\r\nCamera sau: Chính 13 MP \r\nCamera trước: 5 MP\r\nPin: 5020 mAh', 0),
+(46, 'Xiaomi Redmi 9C', 7, '/public/upload/products/xiaomi-redmi-9c.png', 249, 'Màn hình: 6.53\", Full HD+\r\nChip: Snapdragon 665 8 nhân\r\nRAM: 2 GB, Bộ nhớ trong: 32 GB\r\nCamera sau: Chính 12 MP & Phụ 8 MP, 5 MP, 2 MP\r\nCamera trước: 5 MP\r\nPin: 5020 mAh', 0),
+(47, 'OPPO Reno3 Pro', 3, '/public/upload/products/oppo-reno3-pro.png', 899, 'Màn hình: 6.4\", Full HD+\r\nChip: MediaTek Helio P95 8 nhân\r\nRAM: 8 GB, Bộ nhớ trong: 256 GB\r\nCamera sau: Chính 64 MP & Phụ 13 MP, 8 MP, 2 MP\r\nCamera trước: Chính 44 MP & Phụ 2 MP\r\nPin: 4025 mAh, có sạc nhanh', 0);
 
 -- --------------------------------------------------------
 
@@ -12176,12 +12242,6 @@ ALTER TABLE `catagories`
 -- Chỉ mục cho bảng `districts`
 --
 ALTER TABLE `districts`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `products`
---
-ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
