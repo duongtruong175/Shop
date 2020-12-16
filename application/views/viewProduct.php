@@ -58,10 +58,12 @@
                 <div class="product-detail">
                     <h3>Chi tiết sản phẩm:</h3>
                     <p>
-                        Nếu như từ trước tới nay dòng Galaxy Note của Samsung thường ít được
-                        các bạn nữ sử dụng bởi kích thước màn hình khá lớn khiến việc cầm nắm
-                        trở nên khó khăn thì Samsung Galaxy Note 10 sẽ là chiếc smartphone nhỏ gọn,
-                        phù hợp với cả những bạn có bàn tay nhỏ.
+                        Màn hình: 6.4", Full HD+
+                        Chip: MediaTek MT6768 8 nhân (Helio P65)
+                        RAM: 6 GB, Bộ nhớ trong: 128 GB
+                        Camera sau: Chính 48 MP & Phụ 8 MP, 5 MP, 5 MP
+                        Camera trước: 20 MP
+                        Pin: 5000 mAh, có sạc nhanh
                     </p>
                 </div>
                 <div class="product-detail">

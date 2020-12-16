@@ -95,20 +95,20 @@ CREATE TABLE `carts` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `catagories`
+-- Cấu trúc bảng cho bảng `categories`
 --
 
-CREATE TABLE `catagories` (
+CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `isDelete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `catagories`
+-- Đang đổ dữ liệu cho bảng `categories`
 --
 
-INSERT INTO `catagories` (`id`, `name`, `isDelete`) VALUES
+INSERT INTO `categories` (`id`, `name`, `isDelete`) VALUES
 (1, 'IPHONE', 0),
 (2, 'SAMSUNG', 0),
 (3, 'OPPO', 0),
@@ -854,7 +854,7 @@ INSERT INTO `districts` (`id`, `name`, `type`, `provinces_id`) VALUES
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `catagory_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
   `image` varchar(150) NOT NULL,
   `price` int(11) NOT NULL,
   `detail` varchar(500) NOT NULL,
@@ -865,7 +865,7 @@ CREATE TABLE `products` (
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `catagory_id`, `image`, `price`, `detail`, `isDelete`) VALUES
+INSERT INTO `products` (`id`, `name`, `category_id`, `image`, `price`, `detail`, `isDelete`) VALUES
 (1, 'Samsung Glaxy Note 10 Plus 256GB', 2, '/public/upload/products/samsung_galaxy_note_10_plus_256gb.png', 712, 'Màn hình: 6.8\", Quad HD+ (2K+)\r\nChip: Exynos 9825 8 nhân\r\nRAM: 12 GB, Bộ nhớ trong: 256 GB\r\nCamera sau: Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D\r\nCamera trước: 10 MP\r\nPin: 4300 mAh, có sạc nhanh', 0),
 (2, 'IPhone 12 mini 64GB', 1, '/public/upload/products/iphone-mini-64gb.png', 841, 'Màn hình: 5.4\", Super Retina XDR\r\nChip: Apple A14 Bionic 6 nhân\r\nRAM: 4 GB, Bộ nhớ trong: 64 GB\r\nCamera sau: 2 camera 12 MP\r\nCamera trước: 12 MP\r\nCamera trước: 12 MP', 0),
 (3, 'IPhone 11 Pro Max 512GB', 1, '/public/upload/products/iphone-11-pro-max-512gb.png', 1553, 'Màn hình: 6.5\", Super Retina XDR\r\nChip: Apple A13 Bionic 6 nhân\r\nRAM: 4 GB, Bộ nhớ trong: 512 GB\r\nCamera sau: 3 camera 12 MP\r\nCamera trước: 12 MP\r\nPin: 3969 mAh, có sạc nhanh', 0),
@@ -12233,9 +12233,9 @@ ALTER TABLE `carts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `catagories`
+-- Chỉ mục cho bảng `categories`
 --
-ALTER TABLE `catagories`
+ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --

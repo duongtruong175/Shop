@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
-    <link href="./public/css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="./public/css/style.css" rel="stylesheet" type="text/css" />
+    <title>Home</title>
+    <link href="<?php echo BASEPATH ?>/public/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo BASEPATH ?>/public/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         </div>
         <div class="header-content">
             <div class="logo">
-                <a href="index.php"><img src="./public/img/logo.png" alt=""></a>
+                <a href="index.php"><img src="<?php echo PATH_URL_IMG ?>logo.png" alt="shop logo"></a>
             </div>
             <div class="search">
                 <div class="search-input">
@@ -30,10 +30,10 @@
                         <input type="text" placeholder="Enter keyword here">
                     </form>
                 </div>
-                <button class="search-button"><img src="./public/img/search.png"></button>
+                <button class="search-button"><img src="<?php echo PATH_URL_IMG ?>search.png" alt="search logo"></button>
             </div>
             <div class="cart">
-                <a href="#"><img src="./public/img/cart.png" alt=""> </a>
+                <a href="#"><img src="<?php echo PATH_URL_IMG ?>cart.png" alt="cart logo"> </a>
             </div>
         </div>
     </div>
