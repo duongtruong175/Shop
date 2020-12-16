@@ -159,15 +159,14 @@ body {
   flex: 0 1 auto;
 }
 .product {
-  flex-basis: 25%; /* chỉ định độ dài ban đầu của phần tử trong flex */
-  max-width: 25%; /* độ dài tối đa của phần tử so với phần tử chứa nó*/
+  flex-basis: 20%; /* chỉ định độ dài ban đầu của phần tử trong flex */
+  max-width: 20%; /* độ dài tối đa của phần tử so với phần tử chứa nó*/
   flex: 0 0 auto; /* đặt tất cả phần tử trong flex có cùng độ dài */
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  margin: 0.5rem 0;
+  padding-right: 0.3125rem;
+  padding-left: 0.3125rem;
+  margin: 0.3125rem 0;
   box-sizing: border-box;
-  width: 25%;
-  line-height: 1.2rem; /* chiều cao dòng */
+  line-height: 1.2;
 }
 .product-view {
   display: block;
@@ -401,6 +400,3 @@ body {
   cursor: pointer;
   margin: 0 40px; 
 }
-
-
-/* ahsđa */
