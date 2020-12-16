@@ -13,7 +13,7 @@
                         foreach ($categories as $category) {
                     ?>
                             <li>
-                                <a href="#"><span><?php echo $category['name'] ?></span></a>
+                                <a href="<?php echo BASEPATH ?>/"><span><?php echo $category['name'] ?></span></a>
                             </li>
                     <?php
                         }
