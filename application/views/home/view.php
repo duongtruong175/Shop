@@ -31,7 +31,7 @@
                             <div class="product">
                                 <div class="product-view">
                                     <div class="product-img">
-                                        <a href="<?php echo BASEPATH ?>/products/view/<?php echo $product['id']?>"><img id="img-product" src="<?php echo BASEPATH . $product['image'] ?>"></a>
+                                        <a href="#"><img id="img-product" src="<?php echo BASEPATH . $product['image'] ?>"></a>
                                     </div>
                                     <div class="product-info">
                                         <div id="name-product"><?php echo $product['name'] ?></div>

@@ -22,7 +22,7 @@
         </div>
         <div class="header-content">
             <div class="logo">
-                <a href="index.php"><img src="<?php echo PATH_URL_IMG ?>logo.png" alt="shop logo"></a>
+                <a href="<?php echo BASEPATH ?>"><img src="<?php echo PATH_URL_IMG ?>logo.png" alt="shop logo"></a>
             </div>
             <div class="search">
                 <div class="search-input">
