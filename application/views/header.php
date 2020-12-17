@@ -16,13 +16,19 @@
             <div class="navbar-link">
                 <a href="#">Thông báo</a>
                 <a href="#">Trợ giúp</a>
-                <a href="#">Đăng nhập</a>
-                <a href="#">Đăng ký</a>
+                <?php
+                if(isset($_SESSION['user_name'])) {
+                    echo '<a href="'.BASEPATH.'/accounts/logout"><img src="'.PATH_URL_IMG.'user.png" alt="cart logo">'.$_SESSION['user_name'].'</a>';
+                } else {
+                    echo '<a href="'.BASEPATH.'/accounts/login">Đăng nhập</a>
+                          <a href="'.BASEPATH.'/accounts/register">Đăng ký</a>';
+                }
+                ?>
             </div>
         </div>
         <div class="header-content">
             <div class="logo">
-                <a href="index.php"><img src="<?php echo PATH_URL_IMG ?>logo.png" alt="shop logo"></a>
+                <a href="<?php echo BASEPATH ?>/home/index"><img src="<?php echo PATH_URL_IMG ?>logo.png" alt="shop logo"></a>
             </div>
             <div class="search">
                 <div class="search-input">
@@ -33,7 +39,7 @@
                 <button class="search-button"><img src="<?php echo PATH_URL_IMG ?>search.png" alt="search logo"></button>
             </div>
             <div class="cart">
-                <a href="#"><img src="<?php echo PATH_URL_IMG ?>cart.png" alt="cart logo"> </a>
+                <a href="<?php echo BASEPATH ?>/carts/index"><img src="<?php echo PATH_URL_IMG ?>cart.png" alt="cart logo"> </a>
             </div>
         </div>
     </div>
