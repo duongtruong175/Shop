@@ -16,8 +16,14 @@
             <div class="navbar-link">
                 <a href="#">Thông báo</a>
                 <a href="#">Trợ giúp</a>
-                <a href="#">Đăng nhập</a>
-                <a href="#">Đăng ký</a>
+                <?php
+                if(!isset($_SESSION['user_name'])) {
+                    echo '<a href="'.BASEPATH.'/accounts/login">Đăng nhập</a>
+                          <a href="'.BASEPATH.'/accounts/register">Đăng ký</a>';
+                } else {
+                    echo '<a href="'.BASEPATH.'/accounts/logout"><img src="'.PATH_URL_IMG.'user.png" alt="cart logo">'.$_SESSION['user_name'].'</a>';
+                }
+                ?>
             </div>
         </div>
         <div class="header-content">

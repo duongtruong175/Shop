@@ -33,7 +33,7 @@
     <div class="container-form">
       <div class="signup">
         <h1 class="signup-heading">Đăng nhập</h1>
-        <form action="#" class="signup-form" autocomplete="off">
+        <form action="" class="signup-form" autocomplete="off">
           <label for="username" class="signup-label">User name</label>
           <input type="text" id="username" class="signup-input" required placeholder="enter your username">
           <label for="password" class="signup-label">Password</label>
