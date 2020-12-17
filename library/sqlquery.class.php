@@ -62,4 +62,11 @@ class SQLQuery
         $this->executeQuery();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    // Hàm lấy ra kết quả số bản ghi bị ảnh hưởng (dùng để kiểm tra update,insert,delete)
+    public function getRowCount()
+    {
+        return $this->stmt->rowCount();
+    }
+
 }

@@ -1,12 +1,12 @@
 <?php
 
-class Category extends Model
+class Bill extends Model
 {
 
-    // lay tat ca categories
-    public function getAllCategory()
+    // thêm đơn hàng
+    public function addBill($account_id, $name, $phone, $address, $payment, $cost)
     {
-        $sql = "SELECT * FROM categories WHERE isDelete = 0;";
+        $sql = "INSET INTO bills() value * FROM categories WHERE isDelete = 0;";
         // tạo câu sql chuẩn bị
         $this->prepareQuery($sql);
         // lấy ra danh sách categories
@@ -17,7 +17,5 @@ class Category extends Model
             return NULL;
         }
     }
-
-    
 
 }

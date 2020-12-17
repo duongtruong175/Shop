@@ -19,6 +19,16 @@ class CartsController extends Controller
         }
     }
 
+    public function delete($id)
+    {
+        $result = $this->Cart->deleteCartbyId($id);
+        if ($result == 1) {
+            header("Location: ".BASEPATH."/carts/index");
+        } else {
+            echo "<script type='text/javascript'>alert('Xóa sản phẩm bị lỗi, xin thử lại !');</script>";
+        }
+    }
+
     function afterAction()
     {
     }
