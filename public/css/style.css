@@ -216,7 +216,6 @@ body {
     box-sizing: border-box;
     width: 25%;
     line-height: 1.2rem;
-    /* chiều cao dòng */
 }
 
 .product-view {
@@ -502,7 +501,7 @@ span {
 }
 
 
-/* Canh bao loi */
+/*cảnh báo lỗi*/
 
 form .dangerous-text {
     font-size: 16px;
