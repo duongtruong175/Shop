@@ -39,7 +39,7 @@
                 <button class="search-button"><img src="<?php echo PATH_URL_IMG ?>search.png" alt="search logo"></button>
             </div>
             <div class="cart">
-                <a href="<?php echo BASEPATH ?>/carts/index"><img src="<?php echo PATH_URL_IMG ?>cart.png" alt="cart logo"> </a>
+                <a href="<?php echo BASEPATH ?>/carts/viewall"><img src="<?php echo PATH_URL_IMG ?>cart.png" alt="cart logo"> </a>
             </div>
         </div>
     </div>

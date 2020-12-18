@@ -11,11 +11,7 @@ class Category extends Model
         $this->prepareQuery($sql);
         // lấy ra danh sách categories
         $categories = $this->getAllResult();
-        if ($categories) {
-            return $categories;
-        } else {
-            return NULL;
-        }
+        return $categories;
     }
 
     

@@ -11,11 +11,7 @@ class Product extends Model
         $this->prepareQuery($sql);
         // lấy ra danh sách product
         $products = $this->getAllResult();
-        if ($products) {
-            return $products;
-        } else {
-            return NULL;
-        }
+        return $products;
     }
 
     // hàm lấy sản phẩm theo id danh muc
@@ -26,11 +22,7 @@ class Product extends Model
         $this->bindData(':category_id', $category_id);
         // lấy ra danh sách kết quả product
         $products = $this->getAllResult();
-        if ($products) {
-            return $products;
-        } else {
-            return NULL;
-        }
+        return $products;
     }
 
     // hàm xem chi tiết 1 sản phẩm
@@ -39,11 +31,7 @@ class Product extends Model
         $this->prepareQuery($sql);
         $this->bindData(':id', $id);
         $product = $this->getSingleResult();
-        if ($product) {
-            return $product;
-        } else {
-            return NULL;
-        }
+        return $product;
     }
     
 }

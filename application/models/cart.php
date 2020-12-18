@@ -17,11 +17,7 @@ class Cart extends Model
         $this->prepareQuery($sql);
         // lấy ra danh sách sản phẩm trong giỏ hàng kèm theo tên giá
         $carts = $this->getAllResult();
-        if ($carts) {
-            return $carts;
-        } else {
-            return NULL;
-        }
+        return $carts;
     }
 
     // xóa sản phẩm trong giỏ hàng theo id giỏ hàng

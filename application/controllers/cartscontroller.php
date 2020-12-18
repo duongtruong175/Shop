@@ -7,11 +7,10 @@ class CartsController extends Controller
     {
     }
 
-    public function index()
+    public function viewall()
     {
-        if (!isset($_SESSION['user_name'])) {
-            //$account_id = $_SESSION['user_name'];
-            $account_id = 2;
+        if (isset($_SESSION['user_id'])) {
+            $account_id = $_SESSION['user_id'];
             $carts = $this->Cart->getCartByAccountId($account_id);
             $this->set('carts', $carts);
         } else { // nếu chưa đăng nhập thì chuyển đến đăng nhập
@@ -23,10 +22,15 @@ class CartsController extends Controller
     {
         $result = $this->Cart->deleteCartbyId($id);
         if ($result == 1) {
-            header("Location: ".BASEPATH."/carts/index");
+            header("Location: ".BASEPATH."/carts/viewall");
         } else {
-            echo "<script type='text/javascript'>alert('Xóa sản phẩm bị lỗi, xin thử lại !');</script>";
+            echo "<script type='text/javascript'>alert('Xóa sản phẩm thất bại, xin thử lại!');</script>";
         }
+    }
+
+    public function add()
+    {
+        
     }
 
     function afterAction()

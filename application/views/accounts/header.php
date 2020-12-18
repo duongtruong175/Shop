@@ -16,7 +16,7 @@
   <div class="header">
     <div style="display: flex;align-items: center;height: 100%;justify-content: space-between;">
       <div style="display: flex;align-items: center;">
-        <a href="#" style="margin-left: 10px;"><img src="<?php echo PATH_URL_IMG ?>logo.png" alt="shop logo"></a>
+        <a href="<?php echo BASEPATH ?>/home/index" style="margin-left: 10px;"><img src="<?php echo PATH_URL_IMG ?>logo.png" alt="shop logo"></a>
         <div class="line"></div>
         <span style="padding-left: 20px;font-size: 24px;color: white;">
         <?php echo $title ?> 

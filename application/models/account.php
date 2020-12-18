@@ -8,11 +8,7 @@ class Account extends Model{
         $this->prepareQuery($sql);
         // lấy ra danh sách users
         $users = $this->getAllResult();
-        if ($users) {
-            return $users;
-        } else {
-            return NULL;
-        }
+        return $users;
     }
     //thêm tài khoản user
     public function addUser($username,$password,$name,$date,$phone,$address)
@@ -28,5 +24,7 @@ class Account extends Model{
         $this->bindData(':phone', $phone);
         $this->bindData(':address', $address);
         $this->executeQuery();
+        $result = $this->getRowCount();
+        return $result;
     } 
 }
