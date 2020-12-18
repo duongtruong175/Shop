@@ -19,7 +19,8 @@ class Bill extends Model
     // thêm đơn hàng
     public function addBill($account_id, $name, $phone, $address, $payment, $cost)
     {
-        $sql = "INSERT INTO bills (account_id, name, phone, address, payment, cost, order_time) VALUES (:account_id, :name, :phone, :address, :payment, :cost, NOW());";
+        $status = 'Đang chờ';
+        $sql = "INSERT INTO bills (account_id, name, phone, address, payment, cost, order_time, status) VALUES (:account_id, :name, :phone, :address, :payment, :cost, NOW(), :status);";
         $this->prepareQuery($sql);
         $this->bindData(':account_id', $account_id);
         $this->bindData(':name', $name);
@@ -27,6 +28,20 @@ class Bill extends Model
         $this->bindData(':address', $address);
         $this->bindData(':payment', $payment);
         $this->bindData(':cost', $cost);
+        $this->bindData(':status', $status);
+        $this->executeQuery();
+        $result = $this->getLastInsertId();
+        return $result;
+    }
+
+    // thêm chi tiết đơn hàng
+    public function addBillDetail($bill_id, $product_id, $quantity)
+    {
+        $sql = "INSERT INTO bill_detail (bill_id, product_id, quantity) VALUES (:bill_id, :product_id, :quantity);";
+        $this->prepareQuery($sql);
+        $this->bindData(':bill_id', $bill_id);
+        $this->bindData(':product_id', $product_id);
+        $this->bindData(':quantity', $quantity);
         $this->executeQuery();
         $result = $this->getRowCount();
         return $result;

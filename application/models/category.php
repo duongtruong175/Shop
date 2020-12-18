@@ -3,6 +3,13 @@
 class Category extends Model
 {
 
+    public $productModel;
+
+    public function __construct() {
+        parent::__construct();
+        $this->productModel = new Product;
+    }
+
     // lay tat ca categories
     public function getAllCategory()
     {
@@ -13,7 +20,5 @@ class Category extends Model
         $categories = $this->getAllResult();
         return $categories;
     }
-
-    
 
 }

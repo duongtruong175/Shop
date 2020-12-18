@@ -24,7 +24,8 @@ class CartsController extends Controller
         if ($result == 1) {
             header("Location: ".BASEPATH."/carts/viewall");
         } else {
-            echo "<script type='text/javascript'>alert('Xóa sản phẩm thất bại, xin thử lại!');</script>";
+            $_SESSION['dangerous_delete_cart'] = 'Xóa sản phẩm thất bại, xin thử lại!';
+            header("Location: ".BASEPATH."/carts/viewall");
         }
     }
 

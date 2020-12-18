@@ -21,7 +21,7 @@
                     echo '<a href="'.BASEPATH.'/accounts/login">Đăng nhập</a>
                           <a href="'.BASEPATH.'/accounts/register">Đăng ký</a>';
                 } else {
-                    echo '<a href="'.BASEPATH.'/accounts/logout"><img src="'.PATH_URL_IMG.'user.png" alt="cart logo">'.$_SESSION['user_name'].'</a>';
+                    echo '<a href="'.BASEPATH.'/accounts/logout"><img class="logo-user" src="'.PATH_URL_IMG.'user.png" alt="cart logo">'.$_SESSION['user_name'].'</a>';
                 }
                 ?>
             </div>

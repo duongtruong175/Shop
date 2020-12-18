@@ -69,4 +69,9 @@ class SQLQuery
         return $this->stmt->rowCount();
     }
 
+    // Hàm lấy ra id của bản ghi cuối cùng được thêm vào
+    public function getLastInsertId()
+    {
+        return $this->con->lastInsertId();
+    }
 }

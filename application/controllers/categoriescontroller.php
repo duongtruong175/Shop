@@ -7,9 +7,22 @@ class CategoriesController extends Controller
     {
     }
 
-    function index()
+    public function viewall()
     {
-        
+        // lấy dữ liệu cần thiết cho trang home
+        $categories = $this->Category->getAllCategory();
+        $this->set('categories', $categories);
+        $products = $this->Category->productModel->getAllProduct();
+        $this->set('products', $products);
+    }
+
+    public function view($category_id)
+    {
+        $categories = $this->Category->getAllCategory();
+        $this->set('categories', $categories);
+        $products = $this->Category->productModel->getProductByCategoryId($category_id);
+        $this->set('products',$products);
+        $this->set('category_selected', $category_id);
     }
 
     function afterAction()

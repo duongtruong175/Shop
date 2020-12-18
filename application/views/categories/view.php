@@ -11,11 +11,19 @@
                     <?php
                     if ($categories) {
                         foreach ($categories as $category) {
+                            if ($category_selected == $category['id']) {
                     ?>
-                            <li>
-                                <a href="<?php echo BASEPATH ?>/home/view/<?php echo $category['id'] ?>"><span><?php echo $category['name'] ?></span></a>
-                            </li>
+                                <li>
+                                    <a style="color:red;" href="<?php echo BASEPATH ?>/categories/view/<?php echo $category['id'] ?>"><span><?php echo $category['name'] ?></span></a>
+                                </li>
+                            <?php
+                            } else {
+                            ?>
+                                <li>
+                                    <a href="<?php echo BASEPATH ?>/categories/view/<?php echo $category['id'] ?>"><span><?php echo $category['name'] ?></span></a>
+                                </li>
                     <?php
+                            }
                         }
                     }
                     ?>

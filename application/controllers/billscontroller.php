@@ -9,15 +9,19 @@ class BillsController extends Controller
 
     public function index()
     {
-        $provinces = $this->Bill->provinceModel->getAllProvince();
-        $this->set('provinces', $provinces);
+        if (isset($_SESSION['user_name'])) {
+            $provinces = $this->Bill->provinceModel->getAllProvince();
+            $this->set('provinces', $provinces);
+        } else {
+            header("Location: " . BASEPATH . "/accounts/login");
+        }
     }
 
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $account_id = $_SESSION['user_id'];
-            $carts = $this->Cart->getCartByAccountId($account_id);
+            $carts = $this->Bill->cartModel->getCartByAccountId($account_id);
             $cost = 0;
             foreach ($carts as $cart) {
                 $cost += $cart['price'] * $cart['quantity'];
@@ -26,19 +30,31 @@ class BillsController extends Controller
             $phone = $_POST['phone'];
             $province = $_POST['province'];
             if (empty($province)) {
-                echo "<script type='text/javascript'>alert('Bạn chưa chọn địa chỉ, xin thử lại!');</script>";
+                $_SESSION['dangerous_bill'] = 'Bạn chưa nhập địa chỉ!';
+                header("Location: " . BASEPATH . "/bills/index");
             } else {
                 $district = $_POST['district'];
                 $ward = $_POST['ward'];
                 $street = $_POST['street'];
                 $payment = $_POST['payment'];
                 $address = $street . ', ' . $ward . ', ' . $district . ', ' . $province;
-                $result = $this->Bill->addBill($account_id, $name, $phone, $address, $payment, $cost);
-                if ($result == 1) {
-                    echo "<script type='text/javascript'>alert('Bạn đã đặt hàng thành công!');</script>";
-                    header("Location: " . BASEPATH . "/home/index");
+                $bill_id = $this->Bill->addBill($account_id, $name, $phone, $address, $payment, $cost);
+                if (!empty($bill_id)) {
+                    $count = 0;
+                    foreach ($carts as $cart) {
+                        $count += $this->Bill->addBillDetail($bill_id, $cart['product_id'], $cart['quantity']);
+                    }
+                    $result = $this->Bill->cartModel->deleteCartbyAccountId($account_id);
+                    if ($count == $result && $result == count($carts)) {
+                        $_SESSION['access_bill'] = 'Bạn đã đặt hàng thành công!';
+                        header("Location: " . BASEPATH . "/home/index");
+                    } else {
+                        $_SESSION['dangerous_bill'] = 'Đặt hàng thất bại, xin thử lại!';
+                        header("Location: " . BASEPATH . "/carts/viewall");
+                    }
                 } else {
-                    echo "<script type='text/javascript'>alert('Đặt hàng thất bại, xin thử lại!');</script>";
+                    $_SESSION['dangerous_bill'] = 'Đặt hàng thất bại, xin thử lại!';
+                    header("Location: " . BASEPATH . "/carts/viewall");
                 }
             }
         }
