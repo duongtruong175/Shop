@@ -3,6 +3,13 @@
 class Category extends Model
 {
 
+    public $productModel;
+
+    public function __construct() {
+        parent::__construct();
+        $this->productModel = new Product;
+    }
+
     // lay tat ca categories
     public function getAllCategory()
     {
@@ -11,13 +18,7 @@ class Category extends Model
         $this->prepareQuery($sql);
         // lấy ra danh sách categories
         $categories = $this->getAllResult();
-        if ($categories) {
-            return $categories;
-        } else {
-            return NULL;
-        }
+        return $categories;
     }
-
-    
 
 }

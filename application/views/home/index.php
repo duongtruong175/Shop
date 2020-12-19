@@ -1,51 +1,19 @@
-    <!-- Nội dung trang home index -->
-    <div class="content">
-        <div class="container-flex">
-            <!-- bên trái -->
-            <div class="catagories">
-                <div class="catagories-header">
-                    <img src="<?php echo PATH_URL_IMG ?>list.png">
-                    <span>Tất cả danh mục</span>
-                </div>
-                <ul class="catagories-list">
-                    <?php
-                    if ($categories) {
-                        foreach ($categories as $category) {
-                    ?>
-                            <li>
-                                <a href="<?php echo BASEPATH ?>/home/view/<?php echo $category['id'] ?>"><span><?php echo $category['name'] ?></span></a>
-                            </li>
-                    <?php
-                        }
-                    }
-                    ?>
-                </ul>
-            </div>
-            <!-- bên phải -->
-            <div class="products">
-                <div class="products-list">
-                    <?php
-                    if ($products) {
-                        foreach ($products as $product) {
-                    ?>
-                            <div class="product">
-                                <div class="product-view">
-                                    <div class="product-img">
-                                        <a href="<?php echo BASEPATH ?>/products/view/<?php echo $product['id']?>"><img id="img-product" src="<?php echo BASEPATH . $product['image'] ?>"></a>
-                                    </div>
-                                    <div class="product-info">
-                                        <div id="name-product"><?php echo $product['name'] ?></div>
-                                        <div id="price-product"><?php echo $product['price'] ?>$</div>
-                                        <div id="btn-add-to-cart"><button>Add to cart</button></div>
-                                    </div>
-                                </div>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
+<?php
+if (isset($_SESSION['access_bill'])) {
+    echo "<script type='text/javascript'>alert('" . $_SESSION['access_bill'] . "');</script>";
+}
+if (isset($_SESSION['empty_bill'])) {
+    echo "<script type='text/javascript'>alert('" . $_SESSION['empty_bill'] . "');</script>";
+}
+?>
 
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="content">
+    <p>Đây là trang home</p>
+    <h2>Xem tất cả danh mục</h2>
+    <a href="<?php echo BASEPATH ?>/categories/viewall">Danh mục</a>
+</div>
+
+<?php
+unset($_SESSION['access_bill']);
+unset($_SESSION['empty_bill']);
+?>

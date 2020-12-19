@@ -61,7 +61,7 @@ CREATE TABLE `bills` (
   `address` varchar(150) NOT NULL,
   `payment` varchar(150) NOT NULL,
   `cost` int(9) NOT NULL,
-  `order_time` date NOT NULL,
+  `order_time` datetime NOT NULL,
   `status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

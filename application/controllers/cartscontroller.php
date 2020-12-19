@@ -7,15 +7,14 @@ class CartsController extends Controller
     {
     }
 
-    public function index()
+    public function viewall()
     {
-        if (!isset($_SESSION['user_name'])) {
-            //$account_id = $_SESSION['user_name'];
-            $account_id = 2;
+        if (isset($_SESSION['user_id'])) {
+            $account_id = $_SESSION['user_id'];
             $carts = $this->Cart->getCartByAccountId($account_id);
             $this->set('carts', $carts);
         } else { // nếu chưa đăng nhập thì chuyển đến đăng nhập
-            header("Location: ".BASEPATH."/accounts/login");
+            header("Location: " . BASEPATH . "/accounts/login");
         }
     }
 
@@ -23,9 +22,30 @@ class CartsController extends Controller
     {
         $result = $this->Cart->deleteCartbyId($id);
         if ($result == 1) {
-            header("Location: ".BASEPATH."/carts/index");
+            header("Location: " . BASEPATH . "/carts/viewall");
         } else {
-            echo "<script type='text/javascript'>alert('Xóa sản phẩm bị lỗi, xin thử lại !');</script>";
+            $_SESSION['dangerous_delete_cart'] = 'Xóa sản phẩm thất bại, xin thử lại!';
+            header("Location: " . BASEPATH . "/carts/viewall");
+        }
+    }
+
+    public function add()
+    {
+        if (isset($_SESSION['user_id'])) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $account_id = $_SESSION['user_id'];
+                $product_id = $_POST['product_id'];
+                $quantity = $_POST['quantity'];
+                $result = $this->Cart->addProductToCart($account_id, $product_id, $quantity);
+                if ($result == 1) {
+                    $_SESSION['access_add_product'] = 'Thêm sản phẩm vào giỏ hàng thành công!';
+                } else {
+                    $_SESSION['dangerous_add_product'] = 'Thêm sản phẩm vào giỏ hàng thất bại, xin thử lại!';
+                }
+                header("Location: " . BASEPATH . "/products/view/" . $product_id);
+            }
+        } else { // nếu chưa đăng nhập thì chuyển đến đăng nhập
+            header("Location: " . BASEPATH . "/accounts/login");
         }
     }
 
