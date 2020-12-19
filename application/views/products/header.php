@@ -32,8 +32,8 @@
             </div>
             <div class="search">
                 <div class="search-input">
-                    <form action ="<?php echo BASEPATH ?>/products/search" method="GET" >
-                        <input type="text" name="key" placeholder="Enter keyword here" id="key">
+                    <form action ="<?php echo BASEPATH ?>/products/search" method="POST" >
+                        <input type="text" name="key" value="<?php echo $keyword ?>" placeholder="Enter keyword here" id="key">
                         <button class="search-button"><img src="<?php echo PATH_URL_IMG ?>search.png" alt="search logo"></button>
                     </form>
                 </div>
