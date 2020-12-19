@@ -9,7 +9,7 @@ class CategoriesController extends Controller
 
     public function viewall()
     {
-        // lấy dữ liệu cần thiết cho trang home
+        // lấy dữ liệu cần thiết cho trang categories
         $categories = $this->Category->getAllCategory();
         $this->set('categories', $categories);
         $products = $this->Category->productModel->getAllProduct();

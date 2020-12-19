@@ -46,4 +46,26 @@ class Product extends Model
         $products = $this->getAllResult();
         return $products;
     }
+
+    // lấy top sản phẩm đắt tiền nhất
+    public function getTopProductExpensive()
+    {
+        $sql = "SELECT * FROM products WHERE isDelete = 0 ORDER BY price DESC LIMIT 5; ";
+        // tạo câu sql chuẩn bị
+        $this->prepareQuery($sql);
+        // lấy ra danh sách product
+        $products = $this->getAllResult();
+        return $products;
+    }
+
+    // lấy top sản phẩm đắt tiền nhất
+    public function getTopProductCheap()
+    {
+        $sql = "SELECT * FROM products WHERE isDelete = 0 ORDER BY price ASC LIMIT 5; ";
+        // tạo câu sql chuẩn bị
+        $this->prepareQuery($sql);
+        // lấy ra danh sách product
+        $products = $this->getAllResult();
+        return $products;
+    }
 }

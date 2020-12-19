@@ -25,7 +25,7 @@ body {
 }
 .navbar-link {
   margin: 2px;
-  display: flex; /*Chia thanh nhieu khoi (nhu 1 hang execl)*/
+  display: flex; /*Chia thanh nhieu khoi (nhu 1 hang excel)*/
   float: right;
 }
 .navbar-link a {
@@ -114,7 +114,7 @@ body {
   margin: 20px 4px;
 }
 
-/* trang home */
+/* trang catagories */
 .catagories {
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
   flex: 0 0 12rem;
@@ -236,13 +236,50 @@ body {
 
 /* Footer */
 .footer {
-  height: 100px;
-  background-color: rgba(117, 111, 115, 0.062);
+  background-color: rgba(117, 111, 115, 0.2);
+}
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 40px 0 20px 0;
+}
+.footer-content {
+  flex: auto;
+  margin: 0;
+  padding: 0 160px;
+}
+.footer-content-header {
+  color: #000;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding-bottom: 8px;
+}
+.footer-content ul li {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 0.9rem;
+  padding: 2px 0px 2px 0;
+}
+.footer-content ul li a{
+  text-decoration: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
-.footer .copyright {
-  margin: auto;
+.footer-content ul li a:hover{
+  color: #fb5533;
+}
+.copyright {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+.copyright p {
+  padding: 26px 0;
+  font-size: 1.115rem;
   text-align: center;
 }
 /* end Footer */
@@ -486,4 +523,94 @@ form .dangerous-text {
 #products-list-search {
   margin: 0 100px;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* trang home - slideshow */
+.slideshow-container {
+  margin: 30px auto;
+  max-width: 1200px;
+  max-height: 300px;
+  overflow: hidden; /* ẩn thanh cuộn */
+  position: relative; /* dùng kết hợp với absolute để định nghĩa các phần tử đè lên nhau */
+}
+.slide {
+  display: none; /* mặc định ẩn hết các phần tử */
+  animation-name: navigation; /* tên animation sẽ áp dụng*/
+  animation-duration: 4s;
+}
+@keyframes navigation { /* định nghĩa hoạt hình animation */
+  from {opacity: 0.4;} /* độ mờ của ảnh*/
+  to {opacity: 1;}
+}
+.slide-img {
+  border-radius: 2px;
+  width: 100%;
+  height: 300px;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute; /* định vị phần tử theo tổ tiên có position: relative; gần nhất */
+  top: 50%;
+  transform: translateY(-50%); /* kết hợp top:50% để căn phần tử lên giữa theo chiều dọc */
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: background-color 1s; /* đặt thời gian hiệu ứng thay đổi */
+  border-radius: 3px;
+}
+.prev {
+  left: 0; /* đặt phần tử ở bên trái tổ tiên gần nhất của nó */
+}
+.next {
+  right: 0; /* đặt phần tử ở bên phải tổ tiên gần nhất của nó */
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.container-home {
+  margin: 30px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.container-home-header {
+  height: 4.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+}
+.container-home-header a {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: rgba(0,0,0,0.54);
+  font-weight: 500;
+}
+.categories-menu {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+.categories-menu li{
+  padding: 0;
+  margin: 0;
+  border-right: 1px solid rgba(0,0,0,0.1);
+  flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.categories-menu li:last-child {
+  border-right: 0;
+}
+.categories-menu li a {
+  text-decoration: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 20px 0;
 }

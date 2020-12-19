@@ -36,7 +36,18 @@ class CartsController extends Controller
                 $account_id = $_SESSION['user_id'];
                 $product_id = $_POST['product_id'];
                 $quantity = $_POST['quantity'];
-                $result = $this->Cart->addProductToCart($account_id, $product_id, $quantity);
+                $carts = $this->Cart->getCartByAccountId($account_id);
+                $isUpdate = 0;
+                foreach ($carts as $cart) {
+                    if ($product_id == $cart['product_id']) {
+                        $quantity += $cart['quantity'];
+                        $result = $this->Cart->updateCart($cart['id'], $account_id, $product_id, $quantity);
+                        $isUpdate = 1;
+                    }
+                }
+                if ($isUpdate == 0) {
+                    $result = $this->Cart->addProductToCart($account_id, $product_id, $quantity);
+                }
                 if ($result == 1) {
                     $_SESSION['access_add_product'] = 'Thêm sản phẩm vào giỏ hàng thành công!';
                 } else {
