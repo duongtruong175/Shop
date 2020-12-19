@@ -40,10 +40,10 @@ class Product extends Model
     public function searchProduct($keyword)
     {
         $sql = "SELECT * FROM products WHERE name LIKE :keyword";
-        $keyword = "%".$keyword."%";
+        $keyword = "%" . $keyword . "%";
         $this->prepareQuery($sql);
         $this->bindData(':keyword', $keyword);
-        $products = $this->getAllProduct();
+        $products = $this->getAllResult();
         return $products;
     }
 }

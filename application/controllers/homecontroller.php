@@ -14,6 +14,10 @@ class HomeController extends Controller
         $this->set('products', $products);
     }
 
+    public function notfound()
+    {
+    }
+
     function afterAction()
     {
     }

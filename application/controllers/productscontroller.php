@@ -15,10 +15,13 @@ class ProductsController extends Controller
     public function search()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $keyword = $_POST['key'];
+            $keyword = $_POST['keyword'];
             $products = $this->Product->searchProduct($keyword);
             $this->set('products', $products);
             $this->set('keyword', $keyword);
+            $this->set('count', count($products));
+        } else {
+            header("Location: " . BASEPATH . "/home/index");
         }
     }
 

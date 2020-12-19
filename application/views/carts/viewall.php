@@ -27,7 +27,7 @@ if (isset($_SESSION['dangerous_delete_cart'])) {
                 <tbody>
                     <?php
                     foreach ($carts as $cart) {
-                        $totalMoney = $cart['price'] * $cart['quantity'];
+                        $totalMoney += $cart['price'] * $cart['quantity'];
                         echo   '<tr>
                                         <td>
                                             <div class="product-img">

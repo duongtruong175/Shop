@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
 
 <head>
     <meta charset="UTF-8">
@@ -17,11 +17,11 @@
                 <a href="#">Thông báo</a>
                 <a href="#">Trợ giúp</a>
                 <?php
-                if(!isset($_SESSION['user_name'])) {
-                    echo '<a href="'.BASEPATH.'/accounts/login">Đăng nhập</a>
-                          <a href="'.BASEPATH.'/accounts/register">Đăng ký</a>';
+                if (!isset($_SESSION['user_name'])) {
+                    echo '<a href="' . BASEPATH . '/accounts/login">Đăng nhập</a>
+                          <a href="' . BASEPATH . '/accounts/register">Đăng ký</a>';
                 } else {
-                    echo '<a href="'.BASEPATH.'/accounts/logout"><img class="logo-user" src="'.PATH_URL_IMG.'user.png" alt="cart logo">'.$_SESSION['user_name'].'</a>';
+                    echo '<a href="' . BASEPATH . '/accounts/logout"><img class="logo-user" src="' . PATH_URL_IMG . 'user.png" alt="cart logo">' . $_SESSION['user_name'] . '</a>';
                 }
                 ?>
             </div>
@@ -32,12 +32,11 @@
             </div>
             <div class="search">
                 <div class="search-input">
-                    <form action ="<?php echo BASEPATH ?>/products/search" method="GET" >
-                        <input type="text" name="key" placeholder="Enter keyword here" id="key">
-                        <button class="search-button"><img src="<?php echo PATH_URL_IMG ?>search.png" alt="search logo"></button>
+                    <form action="<?php echo BASEPATH ?>/products/search" method="POST" id="search">
+                        <input type="text" id="keyword" name="keyword" placeholder="Enter keyword here">
                     </form>
                 </div>
-                
+                <button class="search-button" form="search"><img src="<?php echo PATH_URL_IMG ?>search.png" alt="search logo"></button>
             </div>
             <div class="cart">
                 <a href="<?php echo BASEPATH ?>/carts/viewall"><img src="<?php echo PATH_URL_IMG ?>cart.png" alt="cart logo"> </a>

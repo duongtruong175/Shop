@@ -47,4 +47,17 @@ class Cart extends Model
         $result = $this->getRowCount();
         return $result; //trả về số bản ghi được thực hiện bằng câu lệnh sql
     }
+
+    // thêm sản phẩm vào giỏ hàng
+    public function addProductToCart($account_id, $product_id, $quantity)
+    {
+        $sql = "INSERT INTO carts (account_id, product_id, quantity, isDelete) VALUES (:account_id, :product_id, :quantity, 0);";
+        $this->prepareQuery($sql);
+        $this->bindData(':account_id', $account_id);
+        $this->bindData(':product_id', $product_id);
+        $this->bindData(':quantity', $quantity);
+        $this->executeQuery();
+        $result = $this->getRowCount();
+        return $result;
+    }
 }

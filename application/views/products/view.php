@@ -1,7 +1,16 @@
-
-    <!-- nội dung trang xem chi tiết sản phẩm -->
-    <div class="content">
-        <div class="container-product">
+<?php
+if (isset($_SESSION['access_add_product'])) {
+    echo "<script type='text/javascript'>alert('" . $_SESSION['access_add_product'] . "');</script>";
+}
+if (isset($_SESSION['dangerous_add_product'])) {
+    echo "<script type='text/javascript'>alert('" . $_SESSION['dangerous_add_product'] . "');</script>";
+}
+?>
+<!-- nội dung trang xem chi tiết sản phẩm -->
+<div class="content">
+    <div class="container-product">
+        <form class="form-cart" action="<?php echo BASEPATH ?>/carts/add" method="POST">
+            <input id="product_id" name="product_id" value="<?php echo $product['id'] ?>" hidden>
             <div class="left">
                 <div class="product-img">
                     <img id="img-product" src="<?php echo BASEPATH . $product['image'] ?>">
@@ -21,11 +30,17 @@
                     </p>
                 </div>
                 <div class="product-detail">
-                    <label>Số lượng: </label><input style="width: 44px;" type="number" name="quantity" value="1" min="1">
+                    <label>Số lượng: </label><input style="width: 44px;" type="number" id="quantity" name="quantity" value="1" min="1">
                 </div>
                 <div class="product-detail">
                     <div id="btn-add-to-cart"><button>Add to cart</button></div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+</div>
+
+<?php
+unset($_SESSION['access_add_product']);
+unset($_SESSION['dangerous_add_product']);
+?>
