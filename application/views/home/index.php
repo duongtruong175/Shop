@@ -2,6 +2,9 @@
 if (isset($_SESSION['access_bill'])) {
     echo "<script type='text/javascript'>alert('" . $_SESSION['access_bill'] . "');</script>";
 }
+if (isset($_SESSION['empty_bill'])) {
+    echo "<script type='text/javascript'>alert('" . $_SESSION['empty_bill'] . "');</script>";
+}
 ?>
 
 <div class="content">
@@ -12,4 +15,5 @@ if (isset($_SESSION['access_bill'])) {
 
 <?php
 unset($_SESSION['access_bill']);
+unset($_SESSION['empty_bill']);
 ?>

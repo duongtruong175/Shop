@@ -9,9 +9,17 @@ class BillsController extends Controller
 
     public function index()
     {
-        if (isset($_SESSION['user_name'])) {
-            $provinces = $this->Bill->provinceModel->getAllProvince();
-            $this->set('provinces', $provinces);
+        if (isset($_SESSION['user_id'])) {
+            $account_id = $_SESSION['user_id'];
+            $carts = $this->Bill->cartModel->getCartByAccountId($account_id);
+            if (empty($carts)) {
+                $_SESSION['empty_bill'] = 'Bạn chưa có sản phẩm nào trong giỏ, hãy mua hàng trước khi thanh toán!';
+                header("Location: " . BASEPATH . "/home/index");
+            } else {
+                $provinces = $this->Bill->provinceModel->getAllProvince();
+                $this->set('provinces', $provinces);
+                $this->set('carts', $carts);
+            }
         } else {
             header("Location: " . BASEPATH . "/accounts/login");
         }
