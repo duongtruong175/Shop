@@ -14,16 +14,27 @@
 <body>
     <!-- Header -->
     <div class="header">
-        <div class="header-top">
+    <div class="header-top">
             <div class="navbar-link">
                 <a href="#">Thông báo</a>
                 <a href="#">Trợ giúp</a>
                 <?php
-                if(!isset($_SESSION['user_name'])) {
-                    echo '<a href="'.BASEPATH.'/accounts/login">Đăng nhập</a>
-                          <a href="'.BASEPATH.'/accounts/register">Đăng ký</a>';
+                if (!isset($_SESSION['user_name'])) {
+                    echo '<a href="' . BASEPATH . '/accounts/login">Đăng nhập</a>
+                          <a href="' . BASEPATH . '/accounts/register">Đăng ký</a>';
                 } else {
-                    echo '<a href="'.BASEPATH.'/accounts/logout"><img src="'.PATH_URL_IMG.'user.png" alt="cart logo">'.$_SESSION['user_name'].'</a>';
+                    echo '<div class="dropdown">
+                    <span> 
+                    <img class="logo-user" src="'.PATH_URL_IMG.'user.png" alt="cart logo">'.$_SESSION['user_name'].'</img>
+                    </span>
+                    <br>    
+                    <div class="dropdown-content">
+                    <a href="'.BASEPATH.'/user/profile">Thông tin khách hàng</a>
+                    <br>
+                    <br>
+                    <a href="' . BASEPATH . '/accounts/login">Đăng xuất</a>
+                    </div>
+                    </div>';
                 }
                 ?>
             </div>
