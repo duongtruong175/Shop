@@ -9,7 +9,7 @@
                 </div>
                 <ul class="catagories-list">
                     <?php
-                    if ($categories) {
+                    if (!empty($categories)) {
                         foreach ($categories as $category) {
                             if ($category_selected == $category['id']) {
                     ?>
@@ -33,7 +33,7 @@
             <div class="products">
                 <div class="products-list">
                     <?php
-                    if ($products) {
+                    if (!empty($products)) {
                         foreach ($products as $product) {
                     ?>
                             <div class="product">
@@ -44,7 +44,11 @@
                                     <div class="product-info">
                                         <div id="name-product"><?php echo $product['name'] ?></div>
                                         <div id="price-product"><?php echo $product['price'] ?>$</div>
-                                        <div id="btn-add-to-cart"><button>Add to cart</button></div>
+                                        <div id="btn-add-to-cart">
+                                            <a href="<?php echo BASEPATH ?>/products/view/<?php echo $product['id'] ?>">
+                                                <button>Xem chi tiết</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +56,6 @@
                         }
                     }
                     ?>
-
                 </div>
             </div>
         </div>

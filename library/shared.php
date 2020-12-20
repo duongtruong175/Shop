@@ -99,10 +99,17 @@ function callHook() {
 	
 	$controllerName = ucfirst($controller).'Controller';
 
+	// nếu class controller không tồn tại thì mặc định về home -> notfound
+	if(!(int)class_exists($controllerName) || !(int)method_exists($controllerName, $action)) {
+		$controllerName = 'HomeController';
+		$controller = 'home';
+		$action = 'notfound';
+	}
+
 	$dispatch = new $controllerName($controller,$action);
 	
 	if ((int)method_exists($controllerName, $action)) {
-		call_user_func_array(array($dispatch,"beforeAction"),$queryString);
+		call_user_func_array(array($dispatch,"beforeAction"),$queryString); //gọi đến hàm với các giá trị queryString
 		call_user_func_array(array($dispatch,$action),$queryString);
 		call_user_func_array(array($dispatch,"afterAction"),$queryString);
 	} else {

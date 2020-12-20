@@ -47,4 +47,31 @@ class Cart extends Model
         $result = $this->getRowCount();
         return $result; //trả về số bản ghi được thực hiện bằng câu lệnh sql
     }
+
+    // thêm sản phẩm vào giỏ hàng
+    public function addProductToCart($account_id, $product_id, $quantity)
+    {
+        $sql = "INSERT INTO carts (account_id, product_id, quantity, isDelete) VALUES (:account_id, :product_id, :quantity, 0);";
+        $this->prepareQuery($sql);
+        $this->bindData(':account_id', $account_id);
+        $this->bindData(':product_id', $product_id);
+        $this->bindData(':quantity', $quantity);
+        $this->executeQuery();
+        $result = $this->getRowCount();
+        return $result;
+    }
+
+    // cập nhập lại giỏ hàng sản phẩm vào giỏ hàng
+    public function updateCart($cart_id, $account_id, $product_id, $quantity)
+    {
+        $sql = "UPDATE carts SET quantity = :quantity WHERE id = :cart_id AND account_id = :account_id AND product_id = :product_id ;";
+        $this->prepareQuery($sql);
+        $this->bindData(':cart_id', $cart_id);
+        $this->bindData(':account_id', $account_id);
+        $this->bindData(':product_id', $product_id);
+        $this->bindData(':quantity', $quantity);
+        $this->executeQuery();
+        $result = $this->getRowCount();
+        return $result;
+    }
 }

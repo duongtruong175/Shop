@@ -1,29 +1,11 @@
-    <!-- Nội dung trang home index -->
+    <!-- Nội dung trang tìm kiếm sản phẩm -->
     <div class="content">
+        <div class="search-title">
+            <h1 id="search-title-content"><?php echo $count ?> kết quả tìm kiếm cho từ khóa "<?php echo $keyword ?>"</h1>
+        </div>
         <div class="container-flex">
-            <!-- bên trái -->
-            <div class="catagories">
-                <div class="catagories-header">
-                    <img src="<?php echo PATH_URL_IMG ?>list.png">
-                    <span>Tất cả danh mục</span>
-                </div>
-                <ul class="catagories-list">
-                    <?php
-                    if (!empty($categories)) {
-                        foreach ($categories as $category) {
-                    ?>
-                            <li>
-                                <a href="<?php echo BASEPATH ?>/categories/view/<?php echo $category['id'] ?>"><span><?php echo $category['name'] ?></span></a>
-                            </li>
-                    <?php
-                        }
-                    }
-                    ?>
-                </ul>
-            </div>
-            <!-- bên phải -->
             <div class="products">
-                <div class="products-list">
+                <div class="products-list" id="products-list-search">
                     <?php
                     if (!empty($products)) {
                         foreach ($products as $product) {

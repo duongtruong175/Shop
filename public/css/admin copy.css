@@ -1,0 +1,242 @@
+/* admin */
+
+
+/* Header */
+
+.header-admin {
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #f63;
+    height: 120px;
+    z-index: 100;
+    /* z index lớn hơn sẽ đè lên cái bé hơn */
+}
+
+.header-top {
+    height: 20%;
+    background-color: transparent;
+    /* Mau nen trong suot*/
+    position: relative;
+    /*Dinh vi vi tri tuong doi cua phan tu*/
+    color: white;
+}
+
+.logo-admin {
+    float: left;
+    margin-left: 15px;
+}
+
+.title {
+    height: 36%;
+    text-align: center;
+    box-shadow: 0 0, 125rem 0, 25rem rgba(0, 0, 0, 0, 09);
+    border-radius: 4px;
+    font-size: 40px;
+    color: white;
+    flex-grow: 1;
+    /* chiếm hết khoảng trắng còn lại trên dòng flex */
+}
+
+.group {
+    font-size: 25px;
+    text-align: right;
+    margin-right: 10x;
+    margin-left: 100px;
+    color: white;
+}
+
+.navbar-link-admin {
+    margin-top: 15px;
+    margin-right: 20px;
+    float: right;
+    display: flex;
+}
+
+.dropbtn {
+    background-color: #f63;
+    color: white;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: gray;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+.cart {
+    text-align: center;
+    margin-right: 10x;
+    margin-left: 100px;
+    padding-right: 50px;
+}
+
+
+/* end Header */
+
+
+/* Noi dung ở giữa trang web */
+
+.content-admin {
+    margin-top: 20px;
+    /* đủ để cách header */
+    display: flex;
+}
+
+
+/* Danh mục */
+
+.catagories-list-admin {
+    padding: 40px 0 40px 0;
+    list-style: none;
+    /* chỉ đinh thuộc tính cho các phẩn tử trong list */
+    color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+}
+
+.catagories-list-admin li a {
+    padding-left: 10px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* text tràn thì hiển thị ... */
+    padding: 0.5rem 0.625rem 0.5rem 0.75rem;
+    position: relative;
+    line-height: 2rem;
+    /* chiều cao dòng của phần tử */
+}
+
+.catagories-list-admin li a:hover {
+    background-color: gray;
+}
+
+.config {
+    flex: 1;
+    /* chiếm hết màn hình còn lại trên dòng flex */
+    width: 0;
+    min-width: 0;
+}
+
+.config button {
+    margin: 5px;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.config button:hover,
+.config button:focus {
+    background-color: #29b97d;
+}
+
+.config h1 {
+    font-size: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 30px;
+    color: black;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+.config label {
+    margin-top: 10px;
+}
+
+input[type=text],
+select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 12px 20px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+
+/* end Home page */
+
+
+/* Footer */
+
+.footer-admin {
+    height: 100px;
+    background-color: rgba(117, 111, 115, 0.062);
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    margin-top: 300px;
+}
+
+.footer-admin .copyright {
+    margin: auto;
+    text-align: center;
+}
+
+
+/* end Footer */
