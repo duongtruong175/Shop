@@ -5,7 +5,7 @@
             <?php
             echo '<form action="' . BASEPATH . '/users/updatepassword" class="signup-form" autocomplete="off" method="POST">
                     <label for="password" class="signup-label">Mật Khẩu Hiện Tại</label>
-                        <input type="password" id="oldpassword" name="oldpassword" class="signup-input" required placeholder="">';
+                        <input type="password" id="oldpassword" name="oldpassword" class="signup-input" required >';
             ?>
             <?php
             if (isset($dangerOldPassword)) {
@@ -14,9 +14,9 @@
             ?>
             <?php
             echo '<label for="password" class="signup-label">Mật Khẩu Mới</label>
-                        <input type="password" id="newpassword" name="updatepassword" class="signup-input" required placeholder="">
+                        <input type="password" id="newpassword" name="updatepassword" class="signup-input" required >
                         <label for="password" class="signup-label">Xác Nhận Mật Khẩu</label>
-                        <input type="password" id="confpassword" name="confpassword" class="signup-input" required placeholder="" ">';
+                        <input type="password" id="confpassword" name="confpassword" class="signup-input" required >';
             ?>
             <?php
             if (isset($dangerPassword)) {

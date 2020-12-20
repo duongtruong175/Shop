@@ -2,6 +2,9 @@
 if (isset($_SESSION['dangerous_bill'])) {
     echo "<script type='text/javascript'>alert('" . $_SESSION['dangerous_bill'] . "');</script>";
 }
+if (isset($_SESSION['dangerous_edit_cart'])) {
+    echo "<script type='text/javascript'>alert('" . $_SESSION['dangerous_edit_cart'] . "');</script>";
+}
 if (isset($_SESSION['dangerous_delete_cart'])) {
     echo "<script type='text/javascript'>alert('" . $_SESSION['dangerous_delete_cart'] . "');</script>";
 }
@@ -29,6 +32,8 @@ if (isset($_SESSION['dangerous_delete_cart'])) {
                     foreach ($carts as $cart) {
                         $totalMoney += $cart['price'] * $cart['quantity'];
                         echo   '<tr>
+                                    <form action="' . BASEPATH . '/carts/edit/' . $cart['id'] . '" method="POST">
+                                        <input id="product_id" name="product_id" value="' . $cart['product_id'] . '" hidden>
                                     <td>
                                         <div class="product-img">
                                             <img id="img-product" src="' . BASEPATH . $cart['image'] . '">
@@ -37,7 +42,11 @@ if (isset($_SESSION['dangerous_delete_cart'])) {
                                     <td>' . $cart['name'] . '</td>
                                     <td id="price" type="number">' . $cart['price'] . '</td>
                                     <td><input style="width: 44px;" id="quantity" type="number" name="quantity" value="' . $cart['quantity'] . '" min="1"></td>
-                                    <td><a href="' . BASEPATH . '/carts/delete/' . $cart['id'] . '"><button class="btn-delete"><img src="' . PATH_URL_IMG . 'delete.png"></button></a></td>
+                                    <td style="display: flex;border-top: 0;border-left: 0;border-right: 0;align-items: center;justify-content: center;">
+                                        <button id="editCart" class="btn-delete"><img src="' . PATH_URL_IMG . 'update.png"></button>
+                                    </form>
+                                        <a href="' . BASEPATH . '/carts/delete/' . $cart['id'] . '"><button class="btn-delete"><img src="' . PATH_URL_IMG . 'delete.png"></button></a>
+                                    </td>
                                 </tr>';
                     }
                     ?>
@@ -67,23 +76,8 @@ if (isset($_SESSION['dangerous_delete_cart'])) {
     </div>
 </div>
 
-<!-- Hàm cập nhập thay đổi của tổng tiền theo số lượng sản phẩm -->
-<script type="text/javascript">
-    let before = document.getElementById('quantity').value;
-    let price = Number(document.getElementById('price').innerHTML);
-    let str = document.getElementById('totalMoney').innerHTML;
-    str = str.substring(0, str.length - 1);
-    let totalMoney = Number(str);
-    document.getElementById('quantity').addEventListener("change", function() {
-        let after = document.getElementById('quantity').value;
-        totalMoney += (after - before) * price;
-        document.getElementById('totalMoney').innerHTML = totalMoney + '$';
-        before = after;
-    });
-</script>
-
-
 <?php
 unset($_SESSION['dangerous_bill']);
+unset($_SESSION['dangerous_edit_cart']);
 unset($_SESSION['dangerous_delete_cart']);
 ?>

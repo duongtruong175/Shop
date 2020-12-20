@@ -33,9 +33,10 @@ class AdminsController extends Controller
     {
         if (!isset($_SESSION['admin_id'])) {
             // Chưa đăng nhập
-            header("Location: " . BASEPATH . "/admins/index");
+            header("Location: " . BASEPATH . "/admins/login");
+        } else {
+            $this->set('title', 'Trang quản trị');
         }
-        $this->set('title', 'Tran quản trị');
     }
     public function viewAdmin()
     {
@@ -72,7 +73,7 @@ class AdminsController extends Controller
             }
             if ($state == 0) {
                 $this->Admin->addAdmin($username, $password, $name, $date, $phone, $address);
-                $_SESSION['alert']="Thêm thành công tài khoản";
+                $_SESSION['alert'] = "Thêm thành công tài khoản";
                 header("Location: " . BASEPATH . "/admins/viewAdmin");
             }
         }
@@ -101,7 +102,7 @@ class AdminsController extends Controller
                 }
             }
             $this->Admin->editAdmin($username, $password, $name, $date, $phone, $address, $id);
-            $_SESSION['alert']="Thay đổi thành công";
+            $_SESSION['alert'] = "Thay đổi thành công";
             header("Location: " . BASEPATH . "/admins/viewAdmin");
         }
     }
@@ -110,7 +111,6 @@ class AdminsController extends Controller
         if (!isset($_SESSION['admin_id'])) {
             // Chưa nhập rồi
             header("Location: " . BASEPATH . "/admins/login");
-            
         }
         $this->set('title', 'Quản trị User');
         $users = $this->Admin->getAllUser();
@@ -121,7 +121,6 @@ class AdminsController extends Controller
         if (!isset($_SESSION['admin_id'])) {
             // Chưa nhập rồi
             header("Location: " . BASEPATH . "/admins/login");
-            
         }
         $this->set('title', 'Quản trị Admin');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -141,9 +140,8 @@ class AdminsController extends Controller
             }
             if ($state == 0) {
                 $this->Admin->addUser($username, $password, $name, $date, $phone, $address);
-                $_SESSION['alert']="Thêm thành công tài khoản";
+                $_SESSION['alert'] = "Thêm thành công tài khoản";
                 header("Location: " . BASEPATH . "/admins/viewUser");
-                
             }
         }
     }
@@ -152,7 +150,6 @@ class AdminsController extends Controller
         if (!isset($_SESSION['admin_id'])) {
             // Chưa nhập rồi
             header("Location: " . BASEPATH . "/admins/login");
-            
         }
         $this->set('title', 'Quản trị admin');
         $eUser = $this->Admin->getDetailUser($id);
@@ -172,8 +169,8 @@ class AdminsController extends Controller
                 }
             }
             $this->Admin->editUser($username, $password, $name, $date, $phone, $address, $id);
-            $_SESSION['alert']="Thay đổi thành công";
-            header("Location: " . BASEPATH . "/admins/viewUser");   
+            $_SESSION['alert'] = "Thay đổi thành công";
+            header("Location: " . BASEPATH . "/admins/viewUser");
         }
     }
     public function viewCategory()
@@ -191,7 +188,6 @@ class AdminsController extends Controller
         if (!isset($_SESSION['admin_id'])) {
             // Chưa nhập rồi
             header("Location: " . BASEPATH . "/admins/login");
-            
         }
         $this->set('title', 'Quản trị Category');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -206,7 +202,7 @@ class AdminsController extends Controller
             }
             if ($state == 0) {
                 $this->Admin->addCategory($category);
-                $_SESSION['alert']="Thêm danh mục thành công";
+                $_SESSION['alert'] = "Thêm danh mục thành công";
                 header("Location: " . BASEPATH . "/admins/viewCategory");
             }
         }
@@ -231,7 +227,7 @@ class AdminsController extends Controller
         $eProduct = $this->Admin->getAllProduct();
         $catpro = $this->Admin->getAllCategory();
         $this->set('catpro', $catpro);
-        $state =0;
+        $state = 0;
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name = $_POST['name'];
             $category_id = $_POST['category'];
@@ -239,7 +235,7 @@ class AdminsController extends Controller
             $price = $_POST['price'];
             $image = "/public/upload/products/";
             if ($_FILES["image"]["name"]) {
-                $target_file = "C:/xampp/htdocs/Shop/public/upload/products/" . basename($_FILES["image"]["name"]);
+                $target_file = ROOT . "/public/upload/products/" . basename($_FILES["image"]["name"]);
                 // Kiểm tra xem file tồn tại chưa
                 if (!file_exists($target_file)) {
                     // di chuyển file đến thư mục chỉ định
@@ -252,17 +248,16 @@ class AdminsController extends Controller
                     $this->set('dangerous', 'Sản phẩm này đã tồn tại!');
                     exit();
                 } else if ($cate['name'] == $name && $cate['isDelete'] == 1) {
-                    $state =1;
+                    $state = 1;
                 }
             }
-            if($state == 1){
+            if ($state == 1) {
                 $this->Admin->editProduct($name, $category_id, $image, $price, $detail, $cate['id']);
-                $_SESSION['alert']="Thay đổi thành công";
+                $_SESSION['alert'] = "Thay đổi thành công";
                 header("Location: " . BASEPATH . "/admins/viewProduct");
-            }
-            else{
+            } else {
                 $this->Admin->addProduct($name, $category_id, $image, $price, $detail);
-                $_SESSION['alert']="Thêm sản phẩm thành công";
+                $_SESSION['alert'] = "Thêm sản phẩm thành công";
                 header("Location: " . BASEPATH . "/admins/viewProduct");
             }
         }
@@ -284,7 +279,7 @@ class AdminsController extends Controller
             $detail = $_POST['detail'];
             $price = $_POST['price'];
             if ($_FILES["image"]["name"]) {
-                $target_file = "C:/xampp/htdocs/Shop/public/upload/products/" . basename($_FILES["image"]["name"]);
+                $target_file = ROOT . "/public/upload/products/" . basename($_FILES["image"]["name"]);
                 // Kiểm tra xem file tồn tại chưa
                 if (!file_exists($target_file)) {
                     // di chuyển file đến thư mục chỉ định
@@ -305,7 +300,7 @@ class AdminsController extends Controller
                 }
             }
             $this->Admin->editProduct($name, $category_id, $image, $price, $detail, $id);
-            $_SESSION['alert']="Thay đổi thành công";
+            $_SESSION['alert'] = "Thay đổi thành công";
             header("Location: " . BASEPATH . "/admins/viewProduct");
         }
     }
@@ -317,7 +312,7 @@ class AdminsController extends Controller
         }
         $this->set('title', 'Quản trị');
         $this->Admin->deleteProduct($id);
-        $_SESSION['alert']="xóa sản phẩm thành công";
+        $_SESSION['alert'] = "xóa sản phẩm thành công";
         header("Location: " . BASEPATH . "/admins/viewProduct");
     }
     public function viewBill()
@@ -325,7 +320,6 @@ class AdminsController extends Controller
         if (!isset($_SESSION['admin_id'])) {
             // Chưa nhập rồi
             header("Location: " . BASEPATH . "/admins/login");
-
         }
         $this->set('title', 'Quản trị');
         $bills = $this->Admin->getAllBill();
@@ -340,7 +334,6 @@ class AdminsController extends Controller
         if (!isset($_SESSION['admin_id'])) {
             // Chưa nhập rồi
             header("Location: " . BASEPATH . "/admins/login");
-
         }
         $this->set('title', 'Quản trị');
         $debills = $this->Admin->getDetailBill($id);
@@ -352,7 +345,8 @@ class AdminsController extends Controller
         }
         $this->set('debills', $debills);
     }
-    public function profile(){
+    public function profile()
+    {
         if (!isset($_SESSION['admin_id'])) {
             // Chưa nhập rồi
             header("Location: " . BASEPATH . "/admins/login");
@@ -362,11 +356,11 @@ class AdminsController extends Controller
         $eAdmin = $this->Admin->getDetailAdmin($id);
         $this->set('eAdmin', $eAdmin);
     }
-    public function logout() {
+    public function logout()
+    {
         unset($_SESSION['admin_id']);
         unset($_SESSION['admin_acc']);
         header("Location: " . BASEPATH . "/admins/login");
-        
     }
     function afterAction()
     {

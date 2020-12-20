@@ -5,7 +5,7 @@
             <div class="catagories">
                 <div class="catagories-header">
                     <img src="<?php echo PATH_URL_IMG ?>list.png">
-                    <span>Tất cả danh mục</span>
+                    <span>Tất Cả Chức Năng</span>
                 </div>
                 <ul class="catagories-list">
                     <li>

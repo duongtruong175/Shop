@@ -29,7 +29,7 @@
                     </span>
                     <br>    
                     <div class="dropdown-content">
-                    <a href="'.BASEPATH.'/user/profile">Thông tin khách hàng</a>
+                    <a href="'.BASEPATH.'/users/profile">Thông tin khách hàng</a>
                     <br>
                     <br>
                     <a href="' . BASEPATH . '/accounts/logout">Đăng xuất</a>

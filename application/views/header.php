@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Shop</title>
     <link href="<?php echo BASEPATH ?>/public/css/reset.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo BASEPATH ?>/public/css/style.css" rel="stylesheet" type="text/css" />
 </head>
@@ -22,17 +22,17 @@
                           <a href="' . BASEPATH . '/accounts/register">Đăng ký</a>';
                 } else {
                     echo '<div class="dropdown">
-                    <span> 
-                    <img class="logo-user" src="' . PATH_URL_IMG . 'user.png" alt="cart logo">' . $_SESSION['user_name'] . '</img>
-                    </span>
-                    <br>    
-                    <div class="dropdown-content">
-                    <a href="' . BASEPATH . '/users/profile">Thông tin khách hàng</a>
-                    <br>
-                    <br>
-                    <a href="' . BASEPATH . '/accounts/logout">Đăng xuất</a>
-                    </div>
-                    </div>';
+                        <span> 
+                        <img class="logo-user" src="' . PATH_URL_IMG . 'user.png" alt="cart logo">' . $_SESSION['user_name'] . '</img>
+                        </span>
+                        <br>    
+                        <div class="dropdown-content">
+                        <a href="' . BASEPATH . '/users/profile">Thông tin khách hàng</a>
+                        <br>
+                        <br>
+                        <a href="' . BASEPATH . '/accounts/logout">Đăng xuất</a>
+                        </div>
+                        </div>';
                 }
                 ?>
             </div>
@@ -133,4 +133,4 @@
                 closeAllLists(e.target);
             });
         }
-    </script>   
+    </script>

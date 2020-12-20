@@ -4,14 +4,14 @@
             <!-- bên trái -->
             <div class="user">
                 <?php
-                    echo '<div class="user-name">
+                echo '<div class="user-name">
                             <h4>Hồ sơ của tôi</h4>
                         </div>
                         <div class="change-infor">
-                            <a href="'.BASEPATH.'/users/updateinfor">Thay đổi thông tin tài khoản</a>
+                            <a href="' . BASEPATH . '/users/updateinfor">Thay đổi thông tin tài khoản</a>
                         </div>
                         <div class="change-password">
-                            <a href="'.BASEPATH.'/users/updatepassword">Thay đổi mật khẩu</a>
+                            <a href="' . BASEPATH . '/users/updatepassword">Thay đổi mật khẩu</a>
                         </div>';
                 ?>
                 <div></div>
@@ -26,7 +26,7 @@
                                 <label>Tên người dùng</label>
                             </div>
                             <div class="user-infor">
-                                <p>'.$_SESSION['user_name'].'</p>
+                                <p>' . $_SESSION['user_name'] . '</p>
                             </div>
                         </div>
                         <div class="user-content">
@@ -34,7 +34,7 @@
                                 <label>Tên đăng nhập</label>
                             </div>
                             <div class="user-infor">
-                                <p>'.$username.'</p>
+                                <p>' . $username . '</p>
                             </div>
                         </div>
                         <div class="user-content">
@@ -42,7 +42,7 @@
                                 <label>Ngày sinh</label>
                             </div>
                             <div class="user-infor">
-                                <p>'.$date.'</p>
+                                <p>' . $date . '</p>
                             </div>
                         </div>
                         <div class="user-content">
@@ -50,7 +50,7 @@
                                 <label>Số điện thoại</label>
                             </div>
                             <div class="user-infor">
-                                <p>'.$phone.'</p>
+                                <p>' . $phone . '</p>
                             </div>
                         </div>
                         <div class="user-content">
@@ -58,7 +58,7 @@
                                 <label>Địa chỉ</label>
                             </div>
                             <div class="user-infor">
-                                <p>'.$address.'</p>
+                                <p>' . $address . '</p>
                             </div>
                         </div>';
 
@@ -67,4 +67,3 @@
             </div>
         </div>
     </div>
-    

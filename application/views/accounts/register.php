@@ -18,7 +18,7 @@
                     <label for="date" class="signup-label">Date</label>
                     <input type="date" id="date" name="date" class="signup-input" placeholder="dd/mm/yyyy">
                     <label for="phone" class="signup-label">Phone</label>
-                    <input type="tel" id="phone" name="phone" class="signup-input" placeholder="ex: 0123456789" pattern="[0-9]{10}">
+                    <input type="tel" id="phone" name="phone" class="signup-input" placeholder="ex: 0123456789" maxlength="10" pattern="[0-9]{10}">
                     <?php
                     if(isset($dangerPhone)){
                     echo '<p class="dangerous-text">'.$dangerPhone.'</p>'.'<br>';
