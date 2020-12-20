@@ -18,10 +18,10 @@
                     <a href="<?php echo BASEPATH ?>/admins/viewCategory"><span>Categories</span></a>
                 </li>
                 <li>
-                    <a href="#"><span>Products</span></a>
+                    <a href="<?php echo BASEPATH ?>/admins/viewProduct"><span>Products</span></a>
                 </li>
                 <li>
-                    <a href="#"><span>Bills</span></a>
+                    <a href="<?php echo BASEPATH ?>/admins/viewBill" style ="background-color:lightcoral;"><span>Bills</span></a>
                 </li>
             </ul>
         </div>

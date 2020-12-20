@@ -12,7 +12,7 @@
                     <a href="<?php echo BASEPATH ?>/admins/viewAdmin"><span>Admin</span></a>
                 </li>
                 <li>
-                    <a href="<?php echo BASEPATH ?>/admins/viewUser"><span>User</span></a>
+                    <a href="<?php echo BASEPATH ?>/admins/viewUser" style ="background-color:lightcoral;"><span>User</span></a>
                 </li>
                 <li>
                     <a href="<?php echo BASEPATH ?>/admins/viewCategory"><span>Categories</span></a>

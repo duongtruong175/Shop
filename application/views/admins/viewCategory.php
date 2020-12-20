@@ -15,7 +15,7 @@
                     <a href="<?php echo BASEPATH ?>/admins/viewUser"><span>User</span></a>
                 </li>
                 <li>
-                    <a href="<?php echo BASEPATH ?>/admins/viewCategory"><span>Categories</span></a>
+                    <a href="<?php echo BASEPATH ?>/admins/viewCategory" style ="background-color:lightcoral;"><span>Categories</span></a>
                 </li>
                 <li>
                     <a href="<?php echo BASEPATH ?>/admins/viewProduct"><span>Products</span></a>

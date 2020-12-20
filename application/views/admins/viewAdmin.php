@@ -9,7 +9,7 @@
             </div>
             <ul class="catagories-list">
                 <li>
-                    <a href="<?php echo BASEPATH ?>/admins/viewAdmin"><span>Admin</span></a>
+                    <a href="<?php echo BASEPATH ?>/admins/viewAdmin" style ="background-color:lightcoral;"><span>Admin</span></a>
                 </li>
                 <li>
                     <a href="<?php echo BASEPATH ?>/admins/viewUser"><span>User</span></a>
