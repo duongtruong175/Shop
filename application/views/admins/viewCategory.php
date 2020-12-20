@@ -36,7 +36,7 @@
                 <table>
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
+                        <th>Tên danh mục</th>
                     </tr>
                     <?php
                     $STT = 1;

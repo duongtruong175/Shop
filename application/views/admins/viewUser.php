@@ -32,15 +32,13 @@
         <!-- bên phải -->
         <div class="config">
             <form method="get">
-                <button formaction="<?php echo BASEPATH ?>/admins/addUser"> <img src="<?php echo PATH_URL_IMG ?>add.png"></button>
                 <table>
                     <tr>
                         <th>STT</th>
-                        <th>Username</th>
-                        <th>Date</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Edit</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Ngày sinh</th>
+                        <th>Số điện thoại</th>
+                        <th>Đia chỉ</th>
                     </tr>
                     <?php
                     $STT = 1;
@@ -51,7 +49,6 @@
                             <td><?php echo $user['date']?></td>
                             <td><?php echo $user['phone']?></td>
                             <td><?php echo $user['address']?></td>
-                            <td> <button formaction="<?php echo BASEPATH."/admins/editUser/". $user['id'];?>"><img src="<?php echo  PATH_URL_IMG;?>edit.png"></button></td>
                         </tr>
                     <?php $STT++;endforeach;?>
                 </table>

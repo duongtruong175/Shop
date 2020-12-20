@@ -39,14 +39,12 @@
                 return NULL;
             }
         }
-        public function editAdmin($username,$password,$name,$date,$phone,$address, $id)
+        public function editAdmin($name,$date,$phone,$address, $id)
         {
             
-            $sql = "UPDATE accounts SET username = :username, password= :password, name = :name,
+            $sql = "UPDATE accounts SET name = :name,
             date= :date, phone = :phone, address= :address WHERE id = :id";
             $this->prepareQuery($sql);
-            $this->bindData(':username', $username);
-            $this->bindData(':password', $password);
             $this->bindData(':name', $name);
             $this->bindData(':date', $date);
             $this->bindData(':phone', $phone);
@@ -65,46 +63,17 @@
                 return NULL;
             }
         }
-        public function addUser($username,$password,$name,$date,$phone,$address)
+
+        public function change($password,$id)
         {
             
-            $sql = "INSERT INTO accounts(username,password,role_id,name,date,phone,address)
-            VALUES (:username, :password, 2, :name, :date, :phone, :address);";
+            $sql = "UPDATE accounts SET password= :password WHERE id = :id";
             $this->prepareQuery($sql);
-            $this->bindData(':username', $username);
             $this->bindData(':password', $password);
-            $this->bindData(':name', $name);
-            $this->bindData(':date', $date);
-            $this->bindData(':phone', $phone);
-            $this->bindData(':address', $address);
-            $this->executeQuery();
-        } 
-        public function getDetailUser($id) {
-            $sql = "SELECT * FROM accounts WHERE id = :id";
-            $this->prepareQuery($sql);
-            $this->bindData(':id', $id);
-            $deUser = $this->getSingleResult();
-            if ($deUser) {
-                return $deUser;
-            } else {
-                return NULL;
-            }
-        }
-        public function editUser($username,$password,$name,$date,$phone,$address, $id)
-        {
-            
-            $sql = "UPDATE accounts SET username = :username, password= :password, name = :name,
-            date= :date, phone = :phone, address= :address WHERE id = :id";
-            $this->prepareQuery($sql);
-            $this->bindData(':username', $username);
-            $this->bindData(':password', $password);
-            $this->bindData(':name', $name);
-            $this->bindData(':date', $date);
-            $this->bindData(':phone', $phone);
-            $this->bindData(':address', $address);
             $this->bindData(':id', $id);
             $this->executeQuery();
         } 
+    
         public function getAllCategory()
         {
             $sql = "SELECT * FROM categories WHERE isDelete = 0;";

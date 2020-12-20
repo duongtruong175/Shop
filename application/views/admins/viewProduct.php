@@ -36,11 +36,11 @@
                 <table>
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
-                        <th>Details</th>
-                        <th>Prices</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Chi tiết</th>
+                        <th>Giá</th>
                         <th>Hình ảnh</th>
-                        <th>Edit</th>
+                        <th>Chỉnh sửa</th>
                     </tr>
                     <?php
                     $STT = 1;

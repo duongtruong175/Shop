@@ -32,14 +32,14 @@
                 <table>
                     <tr>
                         <th>STT</th>
-                        <th>Account</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Payment</th>
-                        <th>Coast</th>
-                        <th>Order_Time</th>
-                        <th>Status</th>
+                        <th>Tài khoản</th>
+                        <th>Tên người đặt</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Giá trị đơn hàng</th>
+                        <th>Thời gian đặt</th>
+                        <th>Tình trạng</th>
                         <th>Chi tiết</th>
                     </tr>
                     <?php

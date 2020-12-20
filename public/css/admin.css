@@ -176,17 +176,14 @@ table {
     color: black;
 }
 
-table,th,
+table,th,tr
 td {
     padding: 8px;
     border: 1px solid black;
+    text-align: center;
 }
 th{
-    text-align: center;
     font-size: 20px;
-}
-td{
-    text-align: left;
 }
 .config tr img {
     display: block;
