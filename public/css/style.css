@@ -615,6 +615,7 @@ form .dangerous-text {
   padding: 20px 0;
 }
 
+/* auto gợi ý search */
 .autocomplete-items {
   position: absolute;
   top: 34px;
@@ -628,13 +629,16 @@ form .dangerous-text {
   border-radius: 2px;
   overflow: hidden;
 }
-
 .items {
   display: flex;
   align-items: center;
-  padding: 3px 15px 3px 3px;
+  padding: 10px 0 4px 4px;
+  color: #000;
 }
-
+.items:hover {
+  color: #2979ff;
+}
 .items strong {
   font-size: 110%;
+  font-weight: 600;
 }

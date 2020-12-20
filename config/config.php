@@ -10,6 +10,6 @@ define('DB_PASSWORD', '');
 define('DB_HOST', 'localhost');
 
 // đường dẫn hệ thống
-define('BASEPATH' , 'http://localhost/Shop');
+define('BASEPATH' , 'http://localhost:8080/web/Shop');
 define('PATH_URL_IMG', BASEPATH.'/public/img/');
 define('PATH_URL_IMG_PRODUCT', BASEPATH. '/public/upload/products/');

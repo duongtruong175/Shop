@@ -68,4 +68,16 @@ class Product extends Model
         $products = $this->getAllResult();
         return $products;
     }
+
+    // trả về danh sách tên sản phẩm hiện có
+    public function getAllNameProduct()
+    {
+        $products = $this->getAllProduct();
+        $words = '';
+        foreach($products as $product) {
+            $words = $words .$product['name'].',' ;
+        }
+        $words = rtrim($words,",");
+        return $words;
+    }
 }

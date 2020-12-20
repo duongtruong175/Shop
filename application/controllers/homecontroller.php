@@ -16,13 +16,8 @@ class HomeController extends Controller
         $this->set('productsExpensive', $productsExpensive);
         $productsCheap = $this->Home->productModel->getTopProductCheap();
         $this->set('productsCheap', $productsCheap);
-        $products = $this->Home->productModel->getAllProduct();
-        $word = '';
-        foreach($products as $product) {
-            $word = $word .$product['name'].',' ;
-        }
-        $word = rtrim($word,",");
-        $this->set('word',$word);
+        $words = $this->Home->productModel->getAllNameProduct();
+        $this->set('words',$words);
     }
 
     public function notfound()

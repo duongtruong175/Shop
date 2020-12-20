@@ -32,7 +32,9 @@
             </div>
             <div class="search">
                 <div class="search-input">
-                    <form action="<?php echo BASEPATH ?>/products/search" method="POST" id="search" autocomplete="off">
+                    <form action="<?php echo BASEPATH ?>/products/search" method="POST" value="<?php if (isset($keyword)) {
+                                                                                                    echo $keyword;
+                                                                                                } ?>" id="search" autocomplete="off">
                         <input type="text" id="keyword" name="keyword" placeholder="Enter keyword here">
                     </form>
                 </div>
@@ -44,8 +46,8 @@
         </div>
     </div>
 
-    <script>
-        var str = "<?php echo $word; ?>";
+    <script type="text/javascript">
+        var str = "<?php echo $words; ?>";
         var key = str.split(",");
         autocomplete(document.getElementById("keyword"), key);
 
