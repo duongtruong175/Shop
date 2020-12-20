@@ -199,8 +199,8 @@ class AdminsController extends Controller
             $cates = $this->Admin->getAllCategory();
             $state = 0;
             foreach ($cates as $cate) {
-                if ($cate['catename'] == $category) {
-                    $this->set('dangerUsername', 'Danh mục đã tồn tại!');
+                if ($cate['name'] == $category) {
+                    $this->set('dangerous', 'Danh mục đã tồn tại!');
                     $state = 1;
                 }
             }
