@@ -6,6 +6,11 @@
                <form action="<?php echo BASEPATH ?>/admins/addProduct" class="signup-form" autocomplete="off" method="POST" enctype="multipart/form-data">
                    <label for="name" class="signup-label">Name</label>
                    <input type="text" id="name" name="name" class="signup-input" required placeholder="enter your name of the product">
+                   <?php 
+                    if(isset($dangerous)){
+                        echo '<p class="dangerous-text" style="width:100%;">'.$dangerous.'</p>';
+                    }
+                    ?>
                    <label for="category" class="signup-label">Category</label>
                    <select name="category" id="category">
                        <?php foreach($catpro as $item){
@@ -19,11 +24,6 @@
                    <input type="detail" id="detail" name="detail" class="signup-input" required placeholder="enter your detail">
                    <label for="image" class="signup-label">Image</label>
                    <input type="file" name="image" id="image">
-                   <?php
-                    if (isset($dangerous)) {
-                        echo '<p class="dangerous-text">' . $dangerous . '</p>';
-                    }
-                    ?>
                    <button class="signup-submit">Submit</button>
                </form>
            </div>

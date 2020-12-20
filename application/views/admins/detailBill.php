@@ -42,14 +42,10 @@
                         // $arr[3] will be updated with each value from $arr...
                         echo "<tr>
                         <td>{$STT}</td>
-                        <td>{$bill['product']}</td>";
-                        echo "<td><img src=";
-                        echo "'";
-                        echo BASEPATH;
-                        echo "{$bill['image']}";
-                        echo "'";
-                        echo "></td>";
-                        echo "<td>{$bill['cost']} $</td>
+                        <td>{$bill['product']}</td><td><img src='".
+                         BASEPATH.
+                         "{$bill['image']}'></td>
+                        <td>{$bill['cost']} $</td>
                         <td>{$bill['quantity']}</td>
                         </tr> ";
                         $STT++;

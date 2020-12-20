@@ -32,9 +32,10 @@ class AdminsController extends Controller
     public function index()
     {
         if (!isset($_SESSION['admin_id'])) {
-            // Đăng nhập rồi
+            // Chưa đăng nhập
             header("Location: " . BASEPATH . "/admins/index");
         }
+        $this->set('title', 'Tran quản trị');
     }
     public function viewAdmin()
     {
@@ -65,11 +66,7 @@ class AdminsController extends Controller
             $state = 0;
             foreach ($admins as $admin) {
                 if ($admin['username'] == $username) {
-                    $this->set('dangerUsername', 'Tài khoản đã tồn tại!');
-                    $state = 1;
-                }
-                if ($admin['phone'] == $phone) {
-                    $this->set('dangerPhone', 'Số điện thoại đã được sử dụng!');
+                    $this->set('dangerous', 'Tài khoản đã tồn tại!');
                     $state = 1;
                 }
             }
@@ -86,6 +83,9 @@ class AdminsController extends Controller
             // Chưa nhập rồi
             header("Location: " . BASEPATH . "/admins/login");
         }
+        $this->set('title', 'Quản trị admin');
+        $eAdmin = $this->Admin->getDetailAdmin($id);
+        $this->set('eAdmin', $eAdmin);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['username'];
             $password = md5($_POST['password']);
@@ -93,12 +93,16 @@ class AdminsController extends Controller
             $date = $_POST['date'];
             $phone = $_POST['phone'];
             $address = $_POST['address'];
+            $admins = $this->Admin->getAllAdmin();
+            foreach ($admins as $admin) {
+                if ($admin['username'] == $username && $admin['id'] != $id) {
+                    $this->set('dangerous', 'Tài khoản đã tồn tại!');
+                    exit();
+                }
+            }
             $this->Admin->editAdmin($username, $password, $name, $date, $phone, $address, $id);
-            echo "<script type='text/javascript'>alert('Đăng ký tài khoản thành công!');</script>";
+            echo "<script type='text/javascript'>alert('Thành công!');</script>";
             header("Location: " . BASEPATH . "/admins/viewAdmin");
-        } else {
-            $eAdmin = $this->Admin->getDetailAdmin($id);
-            $this->set('eAdmin', $eAdmin);
         }
     }
     public function viewUser()
@@ -131,11 +135,7 @@ class AdminsController extends Controller
             $state = 0;
             foreach ($users as $user) {
                 if ($user['username'] == $username) {
-                    $this->set('dangerUsername', 'Tài khoản đã tồn tại!');
-                    $state = 1;
-                }
-                if ($user['phone'] == $phone) {
-                    $this->set('dangerPhone', 'Số điện thoại đã được sử dụng!');
+                    $this->set('dangerous', 'Tài khoản đã tồn tại!');
                     $state = 1;
                 }
             }
@@ -154,20 +154,26 @@ class AdminsController extends Controller
             header("Location: " . BASEPATH . "/admins/login");
             
         }
+        $this->set('title', 'Quản trị admin');
+        $eUser = $this->Admin->getDetailUser($id);
+        $this->set('eUser', $eUser);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['username'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
             $name = $_POST['name'];
             $date = $_POST['date'];
             $phone = $_POST['phone'];
             $address = $_POST['address'];
+            $admins = $this->Admin->getAllUser();
+            foreach ($admins as $admin) {
+                if ($admin['username'] == $username && $admin['id'] != $id) {
+                    $this->set('dangerous', 'Tài khoản đã tồn tại!');
+                    exit();
+                }
+            }
             $this->Admin->editUser($username, $password, $name, $date, $phone, $address, $id);
             echo "<script type='text/javascript'>alert('Sửa thành công!');</script>";
-            header("Location: " . BASEPATH . "/admins/viewUser");
-            
-        } else {
-            $eUser = $this->Admin->getDetailUser($id);
-            $this->set('eUser', $eUser);
+            header("Location: " . BASEPATH . "/admins/viewUser");   
         }
     }
     public function viewCategory()
@@ -211,7 +217,7 @@ class AdminsController extends Controller
             // Chưa nhập rồi
             header("Location: " . BASEPATH . "/admins/login");
         }
-        $this->set('title', 'Quản trị User');
+        $this->set('title', 'Quản trị');
         $products = $this->Admin->getActProduct();
         $this->set('products', $products);
     }
@@ -225,6 +231,7 @@ class AdminsController extends Controller
         $eProduct = $this->Admin->getAllProduct();
         $catpro = $this->Admin->getAllCategory();
         $this->set('catpro', $catpro);
+        $this->set('title', 'Quản trị');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name = $_POST['name'];
             $category_id = $_POST['category'];
@@ -262,6 +269,7 @@ class AdminsController extends Controller
             header("Location: " . BASEPATH . "/admins/login");
         }
         $eProduct = $this->Admin->getDetailProduct($id);
+        $this->set('title', 'Quản trị');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name = $_POST['name'];
             $category_id = $_POST['category'];
@@ -297,7 +305,7 @@ class AdminsController extends Controller
             // Chưa nhập rồi
             header("Location: " . BASEPATH . "/admins/login");
         }
-        $this->set('title', 'Quản trị User');
+        $this->set('title', 'Quản trị');
         $this->Admin->deleteProduct($id);
         header("Location: " . BASEPATH . "/admins/viewProduct");
     }
@@ -308,7 +316,7 @@ class AdminsController extends Controller
             header("Location: " . BASEPATH . "/admins/login");
 
         }
-        $this->set('title', 'Quản trị User');
+        $this->set('title', 'Quản trị');
         $bills = $this->Admin->getAllBill();
         foreach ($bills as $bill => $value) {
             $eAdmin = $this->Admin->getDetailAdmin($value['account_id']);
@@ -323,7 +331,7 @@ class AdminsController extends Controller
             header("Location: " . BASEPATH . "/admins/login");
 
         }
-        $this->set('title', 'Quản trị User');
+        $this->set('title', 'Quản trị');
         $debills = $this->Admin->getDetailBill($id);
         foreach ($debills as $bill => $value) {
             $eAdmin = $this->Admin->getDetailProduct($value['product_id']);

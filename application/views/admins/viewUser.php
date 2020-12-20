@@ -47,7 +47,7 @@
                             <td><?php echo $user['date']?></td>
                             <td><?php echo $user['phone']?></td>
                             <td><?php echo $user['address']?></td>
-                            <td> <button formaction="<?php echo BASEPATH;?>/admins/editUser/<?php $user['id']; ?>"><img src="<?php echo  PATH_URL_IMG;?>edit.png"></button></td>
+                            <td> <button formaction="<?php echo BASEPATH."/admins/editUser/". $user['id'];?>"><img src="<?php echo  PATH_URL_IMG;?>edit.png"></button></td>
                         </tr>
                     <?php $STT++;endforeach;?>
                 </table>
