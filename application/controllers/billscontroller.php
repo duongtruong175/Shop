@@ -19,6 +19,8 @@ class BillsController extends Controller
                 $provinces = $this->Bill->provinceModel->getAllProvince();
                 $this->set('provinces', $provinces);
                 $this->set('carts', $carts);
+                $words = $this->Bill->cartModel->productModel->getAllNameProduct();
+                $this->set('words',$words);
             }
         } else {
             header("Location: " . BASEPATH . "/accounts/login");
