@@ -21,45 +21,44 @@
                     <a href="<?php echo BASEPATH ?>/admins/viewProduct"><span>Products</span></a>
                 </li>
                 <li>
-                    <a href="<?php echo BASEPATH ?>/admins/viewBill" style ="background-color:lightcoral;"><span>Bills</span></a>
+                    <a href="<?php echo BASEPATH ?>/admins/viewBill" style="background-color:lightcoral;"><span>Bills</span></a>
                 </li>
             </ul>
         </div>
         <!-- bên phải -->
         <div class="config">
             <form method="get">
-
                 <table>
                     <tr>
                         <th>STT</th>
-                        <th>Account</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Payment</th>
-                        <th>Coast</th>
-                        <th>Order_Time</th>
-                        <th>Status</th>
+                        <th>Tài khoản</th>
+                        <th>Tên người đặt</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Giá trị đơn hàng</th>
+                        <th>Thời gian đặt</th>
+                        <th>Tình trạng</th>
                         <th>Chi tiết</th>
                     </tr>
                     <?php
                     $STT = 1;
-                    foreach ($bills as $bill) {
-                        
-                        echo "<tr>
-                            <td>{$STT}</td>
-                            <td>{$bill['username']}</td>
-                            <td>{$bill['name']}</td>
-                            <td>{$bill['phone']}</td>
-                            <td>{$bill['address']}</td>
-                            <td>{$bill['payment']}</td>
-                            <td>{$bill['cost']}</td>
-                            <td>{$bill['order_time']}</td>
-                            <td>{$bill['status']}</td>
-                            <td> <button formaction='".BASEPATH."/admins/detailBill/".$bill['id']."'><img src='".
-                            PATH_URL_IMG."viewdetail.png'></button></td>
-                        </tr> ";
-                        $STT++;
+                    if (!empty($bills)) {
+                        foreach ($bills as $bill) {
+                            echo "<tr>
+                                <td>{$STT}</td>
+                                <td>{$bill['username']}</td>
+                                <td>{$bill['name']}</td>
+                                <td>{$bill['phone']}</td>
+                                <td>{$bill['address']}</td>
+                                <td>{$bill['payment']}</td>
+                                <td>{$bill['cost']}$</td>
+                                <td>{$bill['order_time']}</td>
+                                <td>{$bill['status']}</td>
+                                <td> <button formaction='" . BASEPATH . "/admins/detailBill/" . $bill['id'] . "'><img src='" .PATH_URL_IMG . "viewdetail.png'></button></td>
+                            </tr> ";
+                            $STT++;
+                        }
                     }
                     ?>
                 </table>

@@ -43,9 +43,9 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `username`, `password`, `role_id`, `name`, `date`, `phone`, `address`) VALUES
-(1, 'admin', '12345678', 1, 'Nguoi Quan Tri', '2020-12-01', '0123456789', NULL),
-(2, 'user', '12345678', 2, 'Nguoi Dung', '2020-12-01', '0123456789', 'Ha Noi'),
-(3, 'user2', '12345678', 2, 'Nguoi Dung 2', '2020-12-01', '0123456789', 'Ha Noi');
+(1, 'admin', '25d55ad283aa400af464c76d713c07ad', 1, 'Admin', '2020-12-01', '0123456780', 'Số 1 Đại Cồ Việt, Quận Hai Bà Trưng, Thành Phố Hà Nội'),
+(2, 'user1', '25d55ad283aa400af464c76d713c07ad', 2, 'Dương Kim Trường', '2020-12-02', '0123456781', 'Số 2 Đại Cồ Việt, Quận Hai Bà Trưng, Thành Phố Hà Nội'),
+(3, 'user2', '25d55ad283aa400af464c76d713c07ad', 2, 'Phan Thế Việt', '2020-12-03', '0123456782', 'Số 3 Đại Cồ Việt, Quận Hai Bà Trưng, Thành Phố Hà Nội');
 
 -- --------------------------------------------------------
 

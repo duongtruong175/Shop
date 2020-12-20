@@ -1,5 +1,5 @@
 <!-- Nội dung trang home index -->
-<?php if(isset($_SESSION['alert'])){
+<?php if (isset($_SESSION['alert'])) {
     echo "<script type='text/javascript'>alert('{$_SESSION['alert']}');</script>";
     unset($_SESSION['alert']);
 } ?>
@@ -19,7 +19,7 @@
                     <a href="<?php echo BASEPATH ?>/admins/viewUser"><span>User</span></a>
                 </li>
                 <li>
-                    <a href="<?php echo BASEPATH ?>/admins/viewCategory" style ="background-color:lightcoral;"><span>Categories</span></a>
+                    <a href="<?php echo BASEPATH ?>/admins/viewCategory" style="background-color:lightcoral;"><span>Categories</span></a>
                 </li>
                 <li>
                     <a href="<?php echo BASEPATH ?>/admins/viewProduct"><span>Products</span></a>
@@ -36,7 +36,7 @@
                 <table>
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
+                        <th>Tên danh mục</th>
                     </tr>
                     <?php
                     $STT = 1;

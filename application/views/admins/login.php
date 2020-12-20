@@ -11,6 +11,7 @@
                     <?php 
                     if(isset($dangerous)){
                         echo '<p class="dangerous-text">'.$dangerous.'</p>';
+                        unset($dangerous);
                     }
                     ?>
                     <button class="signup-submit">Đăng nhập</button>

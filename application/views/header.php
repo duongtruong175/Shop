@@ -43,10 +43,10 @@
             </div>
             <div class="search">
                 <div class="search-input">
-                    <form action="<?php echo BASEPATH ?>/products/search" method="POST" value="<?php if (isset($keyword)) {
-                                                                                                    echo $keyword;
-                                                                                                } ?>" id="search" autocomplete="off">
-                        <input type="text" id="keyword" name="keyword" placeholder="Enter keyword here">
+                    <form action="<?php echo BASEPATH ?>/products/search" method="POST" id="search" autocomplete="off">
+                        <input type="text" id="keyword" name="keyword" value="<?php if (isset($keyword)) {
+                                                                                    echo $keyword;
+                                                                                } ?>" placeholder="Enter keyword here">
                     </form>
                 </div>
                 <button class="search-button" form="search"><img src="<?php echo PATH_URL_IMG ?>search.png" alt="search logo"></button>

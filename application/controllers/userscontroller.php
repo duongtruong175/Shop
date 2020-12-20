@@ -20,6 +20,8 @@ class UsersController extends Controller
                 $this->set('address', $user['address']);
             }
         }
+        $words = $this->User->productModel->getAllNameProduct();
+        $this->set('words',$words);
     }
     function updateinfor()
     {
@@ -60,6 +62,8 @@ class UsersController extends Controller
                 }
             }
         }
+        $words = $this->User->productModel->getAllNameProduct();
+        $this->set('words',$words);
     }
     function updatepassword()
     {
@@ -88,6 +92,8 @@ class UsersController extends Controller
                 echo "<script type='text/javascript'>alert('Thay đổi mật khẩu thành công!');</script>";
             }
         }
+        $words = $this->User->productModel->getAllNameProduct();
+        $this->set('words',$words);
     }
 
     function afterAction()

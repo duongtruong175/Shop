@@ -36,11 +36,12 @@
                 <table>
                     <tr>
                         <th>STT</th>
-                        <th>Username</th>
-                        <th>Date</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Edit</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Họ và tên</th>
+                        <th>Ngày sinh</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Chỉnh sửa</th>
                     </tr>
                     <?php
                     $STT = 1;
@@ -48,10 +49,11 @@
                         <tr>
                            <td><?php echo $STT ?></td>
                            <td><?php echo $admin['username']?></td>
+                           <td><?php echo $admin['name']?></td>
                            <td><?php echo $admin['date']?></td>
                            <td><?php echo $admin['phone']?></td>
                            <td><?php echo $admin['address']?></td>
-                           <td><button formaction="<?php echo BASEPATH."/admins/editAdmin/".$admin['id'] ?>"><img src="<?php echo PATH_URL_IMG;?>edit.png"></button></td>
+                           <td><button formaction="<?php echo BASEPATH."/admins/editAdmin/".$admin['id'] ?>"><img src="<?php echo PATH_URL_IMG;?>change.png"></button><button formaction="<?php echo BASEPATH."/admins/changePass/".$admin['id'] ?>"><img src="<?php echo PATH_URL_IMG;?>pass.png"></button></td>
                        </tr>
                    <?php $STT++;endforeach;?>
                 </table>

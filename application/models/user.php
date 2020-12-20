@@ -1,6 +1,14 @@
 <?php
 class User extends Model
 {
+
+    public $productModel;
+
+    public function __construct() {
+        parent::__construct();
+        $this->productModel = new Product;
+    }
+
     // lay tat ca categories
     public function getAllUser()
     {

@@ -17,7 +17,7 @@ if (isset($_SESSION['dangerous_bill'])) {
                     <label for="phone" class="signup-label">Phone</label>
                     <input type="tel" id="phone" name="phone" class="signup-input" required placeholder="ex: 0123456789" maxlength="10" pattern="[0-9]{10}">
                     <label for="province" class="signup-label">Province</label>
-                    <select class="select-info" id="province" name="province">
+                    <select class="select-info" id="province" name="province" required>
                         <option value="0">Vui lòng chọn Thành phố/Tỉnh</option>
                         <?php
                         foreach ($provinces as $province) {
@@ -26,11 +26,11 @@ if (isset($_SESSION['dangerous_bill'])) {
                         ?>
                     </select>
                     <label for="district" class="signup-label">District</label>
-                    <select class="select-info" id="district" name="district">
+                    <select class="select-info" id="district" name="district" required>
 
                     </select>
                     <label for="ward" class="signup-label">Ward</label>
-                    <select class="select-info" id="ward" name="ward">
+                    <select class="select-info" id="ward" name="ward" required>
 
                     </select>
                     <label for="street" class="signup-label">Street</label>

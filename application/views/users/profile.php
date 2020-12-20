@@ -8,14 +8,12 @@
                             <h4>Hồ sơ của tôi</h4>
                         </div>
                         <div class="change-infor">
-                            <a href="' . BASEPATH . '/users/updateinfor">Thay đổi thông tin tài khoản</a>
+                            <a style="text-decoration: none; cursor: pointer; font-size: 1.1rem;" href="' . BASEPATH . '/users/updateinfor">Thay đổi thông tin tài khoản</a>
                         </div>
                         <div class="change-password">
-                            <a href="' . BASEPATH . '/users/updatepassword">Thay đổi mật khẩu</a>
+                            <a style="text-decoration: none; cursor: pointer; font-size: 1.1rem;" href="' . BASEPATH . '/users/updatepassword">Thay đổi mật khẩu</a>
                         </div>';
                 ?>
-                <div></div>
-                <div></div>
 
             </div>
             <!-- bên phải -->
