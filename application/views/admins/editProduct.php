@@ -2,7 +2,7 @@
    <div class="content">
        <div class="container-form">
            <div class="signup">
-               <h1 class="signup-heading">Add Product</h1>
+               <h1 class="signup-heading">Edit Product</h1>
                <form action="" class="signup-form" autocomplete="off" method="POST" enctype="multipart/form-data">
                    <label for="name" class="signup-label">Name</label>
                    <input type="text" id="name" name="name" class="signup-input" required value="<?php echo $eProduct['name']; ?>">

@@ -2,7 +2,7 @@
    <div class="content">
         <div class="container-form">
             <div class="signup">
-                <h1 class="signup-heading">Add Admin Account</h1>
+                <h1 class="signup-heading">Edit Admin Account</h1>
                 <form action="<?php echo BASEPATH ?>/admins/editAdmin/<?php echo $eAdmin['id']; ?>" class="signup-form" autocomplete="off" method="POST">
                     <label for="username" class="signup-label">User name</label>
                     <input type="text" id="username" name="username" class="signup-input" value="<?php echo $eAdmin['username'] ?>">
