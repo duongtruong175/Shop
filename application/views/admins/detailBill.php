@@ -18,10 +18,10 @@
                     <a href="<?php echo BASEPATH ?>/admins/viewCategory"><span>Categories</span></a>
                 </li>
                 <li>
-                    <a href="#"><span>Products</span></a>
+                    <a href="<?php echo BASEPATH ?>/admins/viewProduct"><span>Products</span></a>
                 </li>
                 <li>
-                    <a href="#"><span>Bills</span></a>
+                    <a href="<?php echo BASEPATH ?>/admins/viewBill" style ="background-color:lightcoral;"><span>Bills</span></a>
                 </li>
             </ul>
         </div>
@@ -42,14 +42,10 @@
                         // $arr[3] will be updated with each value from $arr...
                         echo "<tr>
                         <td>{$STT}</td>
-                        <td>{$bill['product']}</td>";
-                        echo "<td><img src=";
-                        echo "'";
-                        echo BASEPATH;
-                        echo "{$bill['image']}";
-                        echo "'";
-                        echo "></td>";
-                        echo "<td>{$bill['cost']} $</td>
+                        <td>{$bill['product']}</td><td><img src='".
+                         BASEPATH.
+                         "{$bill['image']}'></td>
+                        <td>{$bill['cost']} $</td>
                         <td>{$bill['quantity']}</td>
                         </tr> ";
                         $STT++;

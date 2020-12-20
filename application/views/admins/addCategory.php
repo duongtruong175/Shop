@@ -8,7 +8,7 @@
                     <input type="text" id="category" name="category" class="signup-input" required placeholder="enter your category">
                     <?php 
                     if(isset($dangerous)){
-                        echo '<p class="dangerous-text">'.$dangerous.'</p>';
+                        echo '<p class="dangerous-text" style="width:100%;">'.$dangerous.'</p>';
                     }
                     ?>
                     <button class="signup-submit">Submit</button>

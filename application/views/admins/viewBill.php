@@ -21,14 +21,14 @@
                     <a href="<?php echo BASEPATH ?>/admins/viewProduct"><span>Products</span></a>
                 </li>
                 <li>
-                    <a href="<?php echo BASEPATH ?>/admins/viewBill"><span>Bills</span></a>
+                    <a href="<?php echo BASEPATH ?>/admins/viewBill" style ="background-color:lightcoral;"><span>Bills</span></a>
                 </li>
             </ul>
         </div>
         <!-- bên phải -->
         <div class="config">
             <form method="get">
-                <button formaction="<?php echo BASEPATH ?>/admins/addAdmin"> <img src="<?php echo PATH_URL_IMG ?>add.png"></button>
+
                 <table>
                     <tr>
                         <th>STT</th>
@@ -45,7 +45,7 @@
                     <?php
                     $STT = 1;
                     foreach ($bills as $bill) {
-                        // $arr[3] will be updated with each value from $arr...
+                        
                         echo "<tr>
                             <td>{$STT}</td>
                             <td>{$bill['username']}</td>
@@ -56,8 +56,8 @@
                             <td>{$bill['cost']}</td>
                             <td>{$bill['order_time']}</td>
                             <td>{$bill['status']}</td>
-                            <td> <button formaction='".BASEPATH."/admins/detailBill"."/".$bill['id']."'><img src='".
-                            PATH_URL_IMG."viewdetail.png'></button></td>.
+                            <td> <button formaction='".BASEPATH."/admins/detailBill/".$bill['id']."'><img src='".
+                            PATH_URL_IMG."viewdetail.png'></button></td>
                         </tr> ";
                         $STT++;
                     }
