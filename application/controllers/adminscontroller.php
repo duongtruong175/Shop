@@ -72,7 +72,7 @@ class AdminsController extends Controller
             }
             if ($state == 0) {
                 $this->Admin->addAdmin($username, $password, $name, $date, $phone, $address);
-                echo "<script type='text/javascript'>alert('Đăng ký tài khoản thành công!');</script>";
+                $_SESSION['alert']="Thêm thành công tài khoản";
                 header("Location: " . BASEPATH . "/admins/viewAdmin");
             }
         }
@@ -101,7 +101,7 @@ class AdminsController extends Controller
                 }
             }
             $this->Admin->editAdmin($username, $password, $name, $date, $phone, $address, $id);
-            echo "<script type='text/javascript'>alert('Thành công!');</script>";
+            $_SESSION['alert']="Thay đổi thành công";
             header("Location: " . BASEPATH . "/admins/viewAdmin");
         }
     }
@@ -141,7 +141,7 @@ class AdminsController extends Controller
             }
             if ($state == 0) {
                 $this->Admin->addUser($username, $password, $name, $date, $phone, $address);
-                echo "<script type='text/javascript'>alert('Đăng ký tài khoản thành công!');</script>";
+                $_SESSION['alert']="Thêm thành công tài khoản";
                 header("Location: " . BASEPATH . "/admins/viewUser");
                 
             }
@@ -172,7 +172,7 @@ class AdminsController extends Controller
                 }
             }
             $this->Admin->editUser($username, $password, $name, $date, $phone, $address, $id);
-            echo "<script type='text/javascript'>alert('Sửa thành công!');</script>";
+            $_SESSION['alert']="Thay đổi thành công";
             header("Location: " . BASEPATH . "/admins/viewUser");   
         }
     }
@@ -206,7 +206,7 @@ class AdminsController extends Controller
             }
             if ($state == 0) {
                 $this->Admin->addCategory($category);
-                echo "<script type='text/javascript'>alert('Thêm danh mục thành công!');</script>";
+                $_SESSION['alert']="Thêm danh mục thành công";
                 header("Location: " . BASEPATH . "/admins/viewCategory");
             }
         }
@@ -231,7 +231,7 @@ class AdminsController extends Controller
         $eProduct = $this->Admin->getAllProduct();
         $catpro = $this->Admin->getAllCategory();
         $this->set('catpro', $catpro);
-        $this->set('title', 'Quản trị');
+        $state =0;
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name = $_POST['name'];
             $category_id = $_POST['category'];
@@ -252,14 +252,19 @@ class AdminsController extends Controller
                     $this->set('dangerous', 'Sản phẩm này đã tồn tại!');
                     exit();
                 } else if ($cate['name'] == $name && $cate['isDelete'] == 1) {
-                    $this->Admin->editProduct($name, $category_id, $image, $price, $detail, $cate['id']);
-                    echo "<script type='text/javascript'>alert('Thành công!');</script>";
-                    header("Location: " . BASEPATH . "/admins/viewProduct");
+                    $state =1;
                 }
             }
-            $this->Admin->addProduct($name, $category_id, $image, $price, $detail);
-            echo "<script type='text/javascript'>alert('Thành công!');</script>";
-            header("Location: " . BASEPATH . "/admins/viewProduct");
+            if($state == 1){
+                $this->Admin->editProduct($name, $category_id, $image, $price, $detail, $cate['id']);
+                $_SESSION['alert']="Thay đổi thành công";
+                header("Location: " . BASEPATH . "/admins/viewProduct");
+            }
+            else{
+                $this->Admin->addProduct($name, $category_id, $image, $price, $detail);
+                $_SESSION['alert']="Thêm sản phẩm thành công";
+                header("Location: " . BASEPATH . "/admins/viewProduct");
+            }
         }
     }
     public function editProduct($id)
@@ -269,7 +274,10 @@ class AdminsController extends Controller
             header("Location: " . BASEPATH . "/admins/login");
         }
         $eProduct = $this->Admin->getDetailProduct($id);
+        $catpro = $this->Admin->getAllCategory();
         $this->set('title', 'Quản trị');
+        $this->set('catpro', $catpro);
+        $this->set('eProduct', $eProduct);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name = $_POST['name'];
             $category_id = $_POST['category'];
@@ -289,14 +297,16 @@ class AdminsController extends Controller
             if (!$detail) {
                 $detail = $eProduct['detail'];
             }
+            $ceProduct = $this->Admin->getAllProduct();
+            foreach ($ceProduct as $cate) {
+                if ($cate['name'] == $name && $cate['isDelete'] == 0 && $cate['id'] != $id) {
+                    $this->set('dangerous', 'Sản phẩm này đã tồn tại!');
+                    exit();
+                }
+            }
             $this->Admin->editProduct($name, $category_id, $image, $price, $detail, $id);
-            echo "<script type='text/javascript'>alert('Thành công!');</script>";
+            $_SESSION['alert']="Thay đổi thành công";
             header("Location: " . BASEPATH . "/admins/viewProduct");
-        } else {
-
-            $catpro = $this->Admin->getAllCategory();
-            $this->set('catpro', $catpro);
-            $this->set('eProduct', $eProduct);
         }
     }
     public function delProduct($id)
@@ -307,6 +317,7 @@ class AdminsController extends Controller
         }
         $this->set('title', 'Quản trị');
         $this->Admin->deleteProduct($id);
+        $_SESSION['alert']="xóa sản phẩm thành công";
         header("Location: " . BASEPATH . "/admins/viewProduct");
     }
     public function viewBill()

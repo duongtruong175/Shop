@@ -136,6 +136,7 @@
                 return NULL;
             }
         }
+        
         public function getAllProduct()
         {
             $sql = "SELECT * FROM products";

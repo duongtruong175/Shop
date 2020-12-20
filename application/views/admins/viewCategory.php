@@ -1,4 +1,8 @@
 <!-- Nội dung trang home index -->
+<?php if(isset($_SESSION['alert'])){
+    echo "<script type='text/javascript'>alert('{$_SESSION['alert']}');</script>";
+    unset($_SESSION['alert']);
+} ?>
 <div class="content">
     <div class="container-flex">
         <!-- bên trái -->

@@ -18,7 +18,7 @@
                     <label for="date" class="signup-label">Date</label>
                     <input type="date" id="date" name="date" class="signup-input" value="<?php echo $eAdmin['date'] ?>"required>
                     <label for="phone" class="signup-label">Phone</label>
-                    <input type="text" id="phone" name="phone" class="signup-input" value="<?php echo $eAdmin['phone'] ?>"required maxlength="10" pattern="[0-9]{10}>
+                    <input type="text" id="phone" name="phone" class="signup-input" value="<?php echo $eAdmin['phone'] ?>"required maxlength="10" pattern="[0-9]{10}">
                     <label for="address" class="signup-label">Address</label>
                     <input type="text" id="address" name="address" class="signup-input" value="<?php echo $eAdmin['address'] ?>"required>
                     
