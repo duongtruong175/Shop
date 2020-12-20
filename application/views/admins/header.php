@@ -17,8 +17,8 @@
       <div class="navbar-link">
         <?php if(isset($_SESSION['admin_id'])): ?>
           <div class="dropdown">
-          <img src="<?php echo PATH_URL_IMG ?>acc.png">
-          <button onclick="myFunction()" class="dropbtn">My account</button>
+          <img src="<?php echo PATH_URL_IMG ?>user.png">
+          <button style="padding-bottom: 15px; margin-bottom:5px;" onclick="myFunction()" class="dropbtn">My account</button>
           <div id="myDropdown" class="dropdown-content">
             <a href="<?php echo BASEPATH ?>/admins/editAdmin/<?php echo $_SESSION['admin_id']?>">Profie</a>
             <a href="<?php echo BASEPATH ?>/admins/logout">Log out</a>
