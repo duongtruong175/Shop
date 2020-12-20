@@ -20,7 +20,7 @@
           <img src="<?php echo PATH_URL_IMG ?>user.png">
           <button style="padding-bottom: 15px; margin-bottom:5px;" onclick="myFunction()" class="dropbtn">My account</button>
           <div id="myDropdown" class="dropdown-content">
-            <a href="<?php echo BASEPATH ?>/admins/editAdmin/<?php echo $_SESSION['admin_id']?>">Profie</a>
+            <a href="<?php echo BASEPATH ?>/admins/profile">Profie</a>
             <a href="<?php echo BASEPATH ?>/admins/logout">Log out</a>
           </div>
         </div>

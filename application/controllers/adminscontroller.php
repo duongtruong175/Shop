@@ -352,6 +352,16 @@ class AdminsController extends Controller
         }
         $this->set('debills', $debills);
     }
+    public function profile(){
+        if (!isset($_SESSION['admin_id'])) {
+            // Chưa nhập rồi
+            header("Location: " . BASEPATH . "/admins/login");
+        }
+        $id = $_SESSION['admin_id'];
+        $this->set('title', 'Profile');
+        $eAdmin = $this->Admin->getDetailAdmin($id);
+        $this->set('eAdmin', $eAdmin);
+    }
     public function logout() {
         unset($_SESSION['admin_id']);
         unset($_SESSION['admin_acc']);
