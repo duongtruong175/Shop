@@ -614,3 +614,27 @@ form .dangerous-text {
   text-align: center;
   padding: 20px 0;
 }
+
+.autocomplete-items {
+  position: absolute;
+  top: 34px;
+  left: 4px;
+  width: 100%;
+  z-index: 600;
+  margin-top: .5rem;
+  margin-left: -.1875rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.26);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  padding: 3px 15px 3px 3px;
+}
+
+.items strong {
+  font-size: 110%;
+}
