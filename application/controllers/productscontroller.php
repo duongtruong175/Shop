@@ -10,8 +10,6 @@ class ProductsController extends Controller
     {
         $product = $this->Product->getDetailProduct($id);
         $this->set('product', $product);
-        $words = $this->Product->getAllNameProduct();
-        $this->set('words',$words);
     }
 
     public function search()
@@ -22,14 +20,12 @@ class ProductsController extends Controller
             $this->set('products', $products);
             $this->set('keyword', $keyword);
             $this->set('count', count($products));
-            $words = $this->Product->getAllNameProduct();
-            $this->set('words',$words);
-        } else {
-            header("Location: " . BASEPATH . "/home/index");
         }
     }
 
     function afterAction()
     {
+        $words = $this->Product->getAllNameProduct();
+        $this->set('words',$words);
     }
 }

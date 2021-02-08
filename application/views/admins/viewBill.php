@@ -32,7 +32,7 @@
                     <tr>
                         <th>STT</th>
                         <th>Tài khoản</th>
-                        <th>Tên người đặt</th>
+                        <th>Tên người nhận</th>
                         <th>Số điện thoại</th>
                         <th>Địa chỉ</th>
                         <th>Phương thức thanh toán</th>

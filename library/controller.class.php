@@ -34,13 +34,14 @@ class Controller
 	}
 	
 	//xử lý xữ liệu nhập vào
-	function test_input($data)
+	function testInput($data)
 	{
 		$data = trim($data);
 		$data = stripslashes($data);
 		$data = htmlspecialchars($data);
 		return $data;
 	}
+	
 	//khởi tạo view của controller theo action tương ứng
 	function __destruct()
 	{

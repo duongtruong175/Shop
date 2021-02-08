@@ -9,94 +9,64 @@ class UsersController extends Controller
 
     function profile()
     {
-        $users = $this->User->getAllUser();
-        foreach ($users as $user) {
-            if ($user['id'] == $_SESSION['user_id']) {
-                $this->set('username', $user['username']);
-                $this->set('password', $user['password']);
-                $this->set('name', $user['name']);
-                $this->set('date', $user['date']);
-                $this->set('phone', $user['phone']);
-                $this->set('address', $user['address']);
-            }
-        }
-        $words = $this->User->productModel->getAllNameProduct();
-        $this->set('words',$words);
+        $this->set('title', 'Tài khoản');
+        $user = $this->User->getUserById($_SESSION['user_id']);
+        $this->set('user', $user);
     }
-    function updateinfor()
-    {
-        $users = $this->User->getAllUser();
-        foreach ($users as $user) {
-            if ($user['id'] == $_SESSION['user_id']) {
-                $this->set('user', $user);
-            }
-        }
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (isset($_POST['updatephone'])) $updatephone = $this->test_input($_POST['updatephone']);
-            if (isset($_POST['updatedate'])) $updatedate = $this->test_input($_POST['updatedate']);
-            if (isset($_POST['updateaddress'])) $updateaddress = $this->test_input($_POST['updateaddress']);
-            if (isset($_POST['updatename'])) {
-                $updatename = $this->test_input($_POST['updatename']);
-                $_SESSION['user_name'] = $updatename;
-            }
-            $state = 0;
-            echo $updatephone;
-            $users = $this->User->getAllUser();
-            foreach ($users as $user) {
-                if ($user['phone'] == $updatephone && $user['id'] != $_SESSION['user_id']) {
-                    $this->set('dangerPhones', 'Số điện thoại đã được sử dụng!');
-                    $state = 1;
-                }
-            }
-            foreach ($users as $user) {
-                if ($user['id'] == $_SESSION['user_id'] and $state == 0) {
-                    if ($updatename == NULL) {
-                        $updatename = $user['name'];
-                        $_SESSION['user_name'] = $updatename;
-                    }
-                    if ($updatephone == NULL) $updatephone = $user['phone'];
-                    if ($updatedate == NULL) $updatedate = $user['date'];
-                    if ($updateaddress == NULL) $updateaddress = $user['address'];
-                    $this->User->updateInfor($updatename, $updatedate, $updatephone, $updateaddress, $user['id']);
-                    header("Location: " . BASEPATH . "/users/profile");
-                }
-            }
-        }
-        $words = $this->User->productModel->getAllNameProduct();
-        $this->set('words',$words);
-    }
-    function updatepassword()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $users = $this->User->getAllUser();
-            $state = 0;
-            if (isset($_POST['oldpassword'])) $oldpassword = md5($this->test_input($_POST['oldpassword']));
-            if (isset($_POST['updatepassword'])) $updatepassword = md5($this->test_input($_POST['updatepassword']));
-            if (isset($_POST['confpassword'])) $confpassword = md5($this->test_input($_POST['confpassword']));
-            if ($updatepassword != $confpassword) {
-                $this->set('dangerPassword', 'Mật khẩu và Mật khẩu xác nhận không giống nhau');
-                $state = 1;
-            }
 
-            foreach ($users as $user) {
-                if ($user['id'] == $_SESSION['user_id']) {
-                    if ($user['password'] != $oldpassword) {
-                        $this->set('dangerOldPassword', 'Mật khẩu không đúng!');
-                        $this->set('dangerPassword', NULL);
-                        $state = 1;
-                    }
+    function password()
+    {
+        $this->set('title', 'Tài khoản');
+        $user = $this->User->getUserById($_SESSION['user_id']);
+        $this->set('user', $user);
+    }
+
+    function updateInformation()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $name = $this->testInput($_POST['name']);
+            $phone = $this->testInput($_POST['phone']);
+            $date = $this->testInput($_POST['date']);
+            $address = $this->testInput($_POST['address']);
+            $result = $this->User->updateInformation($name, $date, $phone, $address, $_SESSION['user_id']);
+            if ($result == 1) {
+                $_SESSION['user_notification'] = 'Thay đổi thông tin tài khoản thành công!';
+            } else {
+                $_SESSION['user_notification'] = 'Thay đổi thông tin tài khoản thất bại, xin thử lại!';
+            }
+            header("Location: " . BASEPATH . "/users/profile");
+        }
+    }
+
+    function updatePassword()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $user = $this->User->getUserById($_SESSION['user_id']);
+            $currentPassword = $this->testInput($_POST['currentpassword']);
+            $newPassword = $this->testInput($_POST['newpassword']);
+            $repeatPassword = $this->testInput($_POST['repeatpassword']);
+            if (md5($currentPassword) != $user['password']) {
+                $_SESSION['user_notification'] = 'Mật khẩu nhập vào không chính xác!';
+            } elseif ($newPassword != $repeatPassword) {
+                $_SESSION['user_notification'] = 'Nhập lại mật khẩu không chính xác!';
+            } elseif ($currentPassword == $newPassword) {
+                $_SESSION['user_notification'] = 'Hãy nhập mật khẩu khác!';
+            } else {
+                $result = $this->User->updatePassword(md5($newPassword), $_SESSION['user_id']);
+                if ($result == 1) {
+                    $_SESSION['user_notification'] = 'Thay đổi mật khẩu thành công!';
+                } else {
+                    $_SESSION['user_notification'] = 'Thay đổi mật khẩu thất bại, xin thử lại!';
                 }
             }
-            if ($state == 0) {
-                $this->User->updatepassword($updatepassword, $_SESSION['user_id']);
-                echo "<script type='text/javascript'>alert('Thay đổi mật khẩu thành công!');</script>";
-            }
+            header("Location: " . BASEPATH . "/users/password");
         }
-        $words = $this->User->productModel->getAllNameProduct();
-        $this->set('words',$words);
     }
 
     function afterAction()
     {
+        // goi y o tren thanh search
+        $words = $this->User->productModel->getAllNameProduct();
+        $this->set('words', $words);
     }
 }

@@ -9,17 +9,20 @@ class User extends Model
         $this->productModel = new Product;
     }
 
-    // lay tat ca categories
-    public function getAllUser()
+    // lay user by id
+    public function getUserById($user_id)
     {
-        $sql = "SELECT * FROM accounts WHERE role_id = 2;";
+        $sql = "SELECT * FROM accounts WHERE role_id = 2 AND id=:user_id;";
         // tạo câu sql chuẩn bị
         $this->prepareQuery($sql);
-        // lấy ra danh sách users
-        $users = $this->getAllResult();
-        return $users;
+        $this->bindData(':user_id', $user_id);
+        $this->executeQuery();
+        $result = $this->getSingleResult();
+        return $result;
     }
-    public function updateInfor($name, $date, $phone, $address, $id)
+
+    // ham update thong tin user
+    public function updateInformation($name, $date, $phone, $address, $id)
     {
         $sql = "UPDATE accounts SET name=:name, date=:date, phone=:phone, address=:address WHERE id=:id;";
         $this->prepareQuery($sql);
@@ -32,6 +35,7 @@ class User extends Model
         $result = $this->getRowCount();
         return $result;
     }
+    
     public function updatePassword($password, $id)
     {
         $sql = "UPDATE accounts SET password=:password WHERE id=:id;";

@@ -507,7 +507,9 @@ body {
 .container-cart {
     display: flex;
     flex-direction: column;
-    margin: 20px 4px;
+    margin: 20px auto;
+    width: 75%;
+    background-color: #fff;
 }
 
 .cart-detail {
@@ -519,6 +521,7 @@ body {
 .cart-detail th,
 td {
     text-align: center;
+    vertical-align: middle;
     padding: 16px 8px;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -595,10 +598,10 @@ span {
 /*cảnh báo lỗi*/
 
 form .dangerous-text {
-    font-size: 16px;
+    font-size: 14px;
     color: red;
     font-weight: 600;
-    margin: 10px 0;
+    margin: 4px 0;
     display: inline-block;
 }
 
@@ -639,81 +642,162 @@ form .dangerous-text {
 
 
 /*Thông tin khách hàng*/
-
-.user {
-    font-family: Arial;
-    width: 30%;
-    color: rgba(0, 0, 0, 0.8);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    text-transform: capitalize;
-    display: inline;
-    height: 500px;
-    padding-left: 4px;
+.user-sidebar {
+    display: block;
+    width: 180px;
+    font-size: .875rem;
 }
 
-.user-name {
-    font-size: 30px;
-    padding-top: 30px;
-}
-
-.change-infor {
-    font-size: 20px;
-    padding-top: 50px;
-}
-
-.change-password {
-    font-size: 20px;
-    padding-top: 50px;
-}
-
-.userinfor {
-    padding-top: 30px;
-    flex-grow: 1;
-    font-weight: 700;
-    font-size: 1rem;
-    color: rgba(0, 0, 0, 0.8);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    text-transform: capitalize;
+.user-brief {
     display: flex;
-    align-items: center;
-    height: 500px;
-    padding-left: 4px;
-    line-height: 90px;
-    display: inline;
+    border-bottom: 1px solid rgb(239, 239, 239);
+    padding: 15px 0px;
 }
 
-.userinfor label {
+.user-icon {
+    height: 40px;
+    width: 40px;
+    margin-left: 4px;
+}
+
+.user-brief-right {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    padding-left: 15px;
+}
+
+.user-brief-username {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    min-height: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: rgb(51, 51, 51);
+}
+
+.user-brief-edit {
+    color: rgb(136, 136, 136);
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.user-sidebar-menu {
+    margin: 16px 0px 0px 0px;
+    margin-left: 2px;
+    text-decoration: none;
+}
+
+.user-sidebar-menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.user-sidebar-menu-entry {
+    align-items: center;
+    display: flex;
+    color: rgba(0, 0, 0, 0.8);
+    padding-left: 2px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.user-sidebar-menu-list {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.user-sidebar-menu a{
+    text-decoration: none;
+    font-size: 13px;
+    padding: 8px 0px;
+    color: rgba(0, 0, 0, 0.8);
+    transition: color 0.1s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    cursor: pointer;
+}
+
+.user-sidebar-menu a :hover{
+    color: rgb(238, 77, 45);
+}
+
+/* bên phải các chức năng phần user */
+.user-content {
+    flex-grow: 1;
+    margin: 0 1rem;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 13%);
+    border-radius: .125rem;
+    padding: 0 30px 20px;
+}
+
+.user-information {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-information-header {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #efefef;
+    padding: 22px 0;
+}
+
+.user-information-header h2 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: #333;
+    text-transform: capitalize;
+}
+
+.user-information-header p {
+    font-size: .8rem;
+    line-height: 1.0625rem;
+    color: #555;
+    margin-top: 3px;
+}
+
+.user-information-profile {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    font-size: .875rem;
+}
+
+.user-information-profile-item {
+    display: flex;
+    margin-bottom: 20px;
+    height: 40px;
+    align-items: center;
+}
+
+.user-information-profile-label {
     width: 20%;
     text-align: right;
-    color: rgba(85, 85, 85, .8);
+    color: rgba(85,85,85,.8);
     text-transform: capitalize;
     overflow: hidden;
-    padding: 15px 50px 20px 0px;
+    padding: 4px 0px;
 }
 
-.user-content {
-    display: flex;
+.user-information-profile-input {
+    width: 80%;
+    padding-left: 1.25rem;
 }
 
-.user-label {
-    width: 30%;
+.user-information-profile-input input {
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,.14);
+    box-shadow: inset 0 2px 0 0 rgb(0 0 0 / 2%);
+    color: #222;
+    padding: 10px;
+    width: 80%;
 }
-
-.user-infor {
-    width: 70%;
-}
-
-
-/*Thay đổi thông tin*/
-
-.change-heading {
-    font-size: 30px;
-    font-weight: bold;
-    color: #000;
-    text-align: center;
-    margin-bottom: 35px;
-}
-
 
 /* css trang đặt hàng */
 

@@ -42,7 +42,7 @@ if (isset($_SESSION['dangerous_delete_cart'])) {
                                     <td>' . $cart['name'] . '</td>
                                     <td id="price" type="number">' . $cart['price'] . '</td>
                                     <td><input style="width: 44px;" id="quantity" type="number" name="quantity" value="' . $cart['quantity'] . '" min="1"></td>
-                                    <td style="display: flex;border-top: 0;border-left: 0;border-right: 0;align-items: center;justify-content: center;">
+                                    <td>
                                         <button id="editCart" class="btn-delete"><img src="' . PATH_URL_IMG . 'update.png"></button>
                                     </form>
                                         <a href="' . BASEPATH . '/carts/delete/' . $cart['id'] . '"><button class="btn-delete"><img src="' . PATH_URL_IMG . 'delete.png"></button></a>

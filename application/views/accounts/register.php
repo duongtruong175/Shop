@@ -8,7 +8,7 @@
                     <input type="text" id="username" name="username" class="signup-input" required placeholder="enter your username">
                     <?php
                     if(isset($dangerUsername)){
-                    echo '<p class="dangerous-text">'.$dangerUsername.'</p>'.'<br>';
+                        echo '<p class="dangerous-text">'.$dangerUsername.'</p>'.'<br>';
                     }
                     ?>
                     <label for="password" class="signup-label">Password</label>
@@ -19,11 +19,6 @@
                     <input type="date" id="date" name="date" class="signup-input" placeholder="dd/mm/yyyy">
                     <label for="phone" class="signup-label">Phone</label>
                     <input type="tel" id="phone" name="phone" class="signup-input" placeholder="ex: 0123456789" maxlength="10" pattern="[0-9]{10}">
-                    <?php
-                    if(isset($dangerPhone)){
-                    echo '<p class="dangerous-text">'.$dangerPhone.'</p>'.'<br>';
-                    }
-                    ?>
                     <label for="address" class="signup-label">Address</label>
                     <input type="text" id="address" name="address" class="signup-input" placeholder="enter your address">
                     <button class="signup-submit">Đăng ký</button>

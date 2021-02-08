@@ -11,8 +11,8 @@ class AccountsController extends Controller
     {
         $this->set('title', 'Đăng nhập');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = $this->test_input($_POST['username']);
-            $password = $this->test_input($_POST['password']);
+            $username = $this->testInput($_POST['username']);
+            $password = $this->testInput($_POST['password']);
             $users = $this->Account->getAllUser();
             foreach ($users as $user) {
                 if ($user['username'] == $username && $user['password'] == md5($password)) {
@@ -29,21 +29,17 @@ class AccountsController extends Controller
     {
         $this->set('title', 'Đăng ký');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = $this->test_input($_POST['username']);
-            $password = $this->test_input($_POST['password']);
-            $name = $this->test_input($_POST['name']);
-            $date = $this->test_input($_POST['date']);
-            $phone = $this->test_input($_POST['phone']);
-            $address = $this->test_input($_POST['address']);
+            $username = $this->testInput($_POST['username']);
+            $password = $this->testInput($_POST['password']);
+            $name = $this->testInput($_POST['name']);
+            $date = $this->testInput($_POST['date']);
+            $phone = $this->testInput($_POST['phone']);
+            $address = $this->testInput($_POST['address']);
             $users = $this->Account->getAllUser();
             $state = 0;
             foreach ($users as $user) {
                 if ($user['username'] == $username) {
                     $this->set('dangerUsername', 'Tài khoản đã tồn tại!');
-                    $state = 1;
-                }
-                if ($user['phone'] == $phone) {
-                    $this->set('dangerPhone', 'Số điện thoại đã được sử dụng!');
                     $state = 1;
                 }
             }

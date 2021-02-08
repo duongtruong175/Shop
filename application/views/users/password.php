@@ -4,7 +4,7 @@ if (isset($_SESSION['user_notification'])) {
 }
 ?>
 
-<!-- Nội dung trang user profile -->
+<!-- Nội dung trang user change password -->
 <div class="content">
     <div class="container-flex" style="margin-left: 90px;margin-right: 90px;">
         <!-- bên trái -->
@@ -27,8 +27,8 @@ if (isset($_SESSION['user_notification'])) {
                     <a href="<?php echo BASEPATH ?>/users/profile"><span>Tài khoản của tôi</span></a>
                 </div>
                 <div class="user-sidebar-menu-list">
-                    <a href="<?php echo BASEPATH ?>/users/profile" style="color:rgb(238, 77, 45);"><span>Hồ sơ</span></a>
-                    <a href="<?php echo BASEPATH ?>/users/password"><span>Đổi mật khẩu</span></a>
+                    <a href="<?php echo BASEPATH ?>/users/profile"><span>Hồ sơ</span></a>
+                    <a href="<?php echo BASEPATH ?>/users/password" style="color:rgb(238, 77, 45);"><span>Đổi mật khẩu</span></a>
                 </div>
             </div>
             <div class="user-sidebar-menu">
@@ -49,49 +49,33 @@ if (isset($_SESSION['user_notification'])) {
         <div class="user-content">
             <div class="user-information">
                 <div class="user-information-header">
-                    <h2>Hồ sơ của tôi</h2>
-                    <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+                    <h2>Đổi mật khẩu</h2>
+                    <p>Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác</p>
                 </div>
                 <div class="user-information-profile">
-                    <form action="<?php echo BASEPATH ?>/users/updateInformation" autocomplete="off" method="POST">
+                    <form action="<?php echo BASEPATH ?>/users/updatePassword" autocomplete="off" method="POST">
                         <div class="user-information-profile-item">
                             <div class="user-information-profile-label">
-                                Tên đăng nhập
+                                Mật khẩu hiện tại
                             </div>
                             <div class="user-information-profile-input">
-                                <?php echo $user['username'] ?>
+                                <input type="password" id="currentpassword" name="currentpassword" required placeholder="enter your current password">
                             </div>
                         </div>
                         <div class="user-information-profile-item">
                             <div class="user-information-profile-label">
-                                Tên
+                                Mật khẩu mới
                             </div>
                             <div class="user-information-profile-input">
-                                <input type="text" id="name" name="name" value="<?php echo $user['name'] ?>" required placeholder="enter your name">
+                                <input type="password" id="newpassword" name="newpassword" required placeholder="enter your new password">
                             </div>
                         </div>
                         <div class="user-information-profile-item">
                             <div class="user-information-profile-label">
-                                Số điện thoại
+                                Xác nhận mật khẩu
                             </div>
                             <div class="user-information-profile-input">
-                                <input type="tel" id="phone" name="phone" value="<?php echo $user['phone'] ?>" placeholder="ex: 0123456789" maxlength="10" pattern="[0-9]{10}">
-                            </div>
-                        </div>
-                        <div class="user-information-profile-item">
-                            <div class="user-information-profile-label">
-                                Ngày sinh
-                            </div>
-                            <div class="user-information-profile-input">
-                                <input type="date" id="date" name="date" value="<?php echo $user['date'] ?>" placeholder="dd/mm/yyyy">
-                            </div>
-                        </div>
-                        <div class="user-information-profile-item">
-                            <div class="user-information-profile-label">
-                                Địa chỉ
-                            </div>
-                            <div class="user-information-profile-input">
-                                <input type="text" id="address" name="address" value="<?php echo $user['address'] ?>" placeholder="enter your address">
+                                <input type="password" id="repeatpassword" name="repeatpassword" required placeholder="enter your repeat password">
                             </div>
                         </div>
                         <button style="margin: 30px 250px 0px;" id="btn-checkout">Cập nhập</button>

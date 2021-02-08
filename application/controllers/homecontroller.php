@@ -16,8 +16,6 @@ class HomeController extends Controller
         $this->set('productsExpensive', $productsExpensive);
         $productsCheap = $this->Home->productModel->getTopProductCheap();
         $this->set('productsCheap', $productsCheap);
-        $words = $this->Home->productModel->getAllNameProduct();
-        $this->set('words',$words);
     }
 
     public function notfound()
@@ -26,5 +24,8 @@ class HomeController extends Controller
 
     function afterAction()
     {
+        // goi y tren thanh search
+        $words = $this->Home->productModel->getAllNameProduct();
+        $this->set('words',$words);
     }
 }

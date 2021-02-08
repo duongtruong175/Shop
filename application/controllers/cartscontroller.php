@@ -13,8 +13,6 @@ class CartsController extends Controller
             $account_id = $_SESSION['user_id'];
             $carts = $this->Cart->getCartByAccountId($account_id);
             $this->set('carts', $carts);
-            $words = $this->Cart->productModel->getAllNameProduct();
-            $this->set('words', $words);
         } else { // nếu chưa đăng nhập thì chuyển đến đăng nhập
             header("Location: " . BASEPATH . "/accounts/login");
         }
@@ -82,5 +80,8 @@ class CartsController extends Controller
 
     function afterAction()
     {
+        // goi y thanh search
+        $words = $this->Cart->productModel->getAllNameProduct();
+        $this->set('words', $words);
     }
 }

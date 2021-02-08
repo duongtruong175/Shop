@@ -19,7 +19,7 @@ class AdminsController extends Controller
                 $admins = $this->Admin->getAllAdmin();
                 foreach ($admins as $admin) {
                     if ($admin['username'] == $adminname && $admin['password'] == $password) {
-                        $_SESSION['admin_acc'] = $admin['username'];
+                        $_SESSION['admin_acc'] = $admin['name'];
                         $_SESSION['admin_id'] = $admin['id'];
                         header("Location: " . BASEPATH . "/admins/index");
                         exit();
